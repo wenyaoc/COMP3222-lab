@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+<sld_project_info>
+  <project>
+    <hash md5_digest_80b="4c31a65af7d5458e9347"/>
+  </project>
+  <file_info>
+    <file device="EP3C16F484C6" path="part2.sof" usercode="0xFFFFFFFF"/>
+  </file_info>
+</sld_project_info>
+=======
+<sld_project_info>
+  <project>
+    <hash md5_digest_80b="4c31a65af7d5458e9347"/>
+  </project>
+  <file_info>
+    <file device="EP3C16F484C6" path="part2.sof" usercode="0xFFFFFFFF"/>
+  </file_info>
+</sld_project_info>
+>>>>>>> b4f2403aaad0345c73aa4dcab8371c7a9f359d64
