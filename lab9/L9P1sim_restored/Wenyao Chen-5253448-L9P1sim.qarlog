@@ -1,0 +1,18 @@
+Quartus II Archive log --	D:/unsw/3222/lab/lab9/L9P1sim_restored/Wenyao Chen-5253448-L9P1sim.qarlog
+
+Archive:	D:/unsw/3222/lab/lab9/L9P1sim_restored/Wenyao Chen-5253448-L9P1sim.qar
+Date:		Sun Nov 08 21:36:54 2020
+Quartus II 64-Bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+
+	=========== Files Selected: ===========
+D:/unsw/3222/lab/lab9/L9P1sim_restored/L9P1sim.qpf
+D:/unsw/3222/lab/lab9/L9P1sim_restored/L9P1sim.qsf
+D:/unsw/3222/lab/lab9/L9P1sim_restored/L9P1sim.vhd
+D:/unsw/3222/lab/lab9/L9P1sim_restored/Waveform.vwf
+D:/unsw/3222/lab/lab9/L9P1sim_restored/assignment_defaults.qdf
+D:/unsw/3222/lab/lab9/L9P1sim_restored/db/L9P1sim.sim.vwf
+D:/unsw/3222/lab/lab9/L9P1sim_restored/incremental_db/compiled_partitions/L9P1sim.db_info
+	======= Total: 7 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

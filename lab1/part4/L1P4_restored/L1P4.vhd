@@ -17,5 +17,5 @@ BEGIN
 	HEX0(3) <= c(1);
 	HEX0(4) <= c(1);
 	HEX0(5) <= c(1) OR (NOT c(0));
-	HEX0(6) <=  c(1);
+	HEX0(6) <= c(1);
 END behaviour;

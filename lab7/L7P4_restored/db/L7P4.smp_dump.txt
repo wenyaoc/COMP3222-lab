@@ -1,0 +1,8 @@
+
+State Machine - |L7P4|y_Q
+Name y_Q.Interval y_Q.Morse_3 y_Q.Morse_2 y_Q.Morse_1 y_Q.Init 
+y_Q.Init 0 0 0 0 0 
+y_Q.Morse_1 0 0 0 1 1 
+y_Q.Morse_2 0 0 1 0 1 
+y_Q.Morse_3 0 1 0 0 1 
+y_Q.Interval 1 0 0 0 1 

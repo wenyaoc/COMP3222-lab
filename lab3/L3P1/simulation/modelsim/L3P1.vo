@@ -1,0 +1,182 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II 64-Bit"
+// VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
+
+// DATE "10/04/2020 02:48:06"
+
+// 
+// Device: Altera EP3C16F484C6 Package FBGA484
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module L3P1 (
+	Clk,
+	R,
+	S,
+	Q);
+input 	Clk;
+input 	R;
+input 	S;
+output 	Q;
+
+// Design Ports Information
+// Q	=>  Location: PIN_K7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Clk	=>  Location: PIN_F7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// R	=>  Location: PIN_K8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// S	=>  Location: PIN_V4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \S_g~combout ;
+wire \S~input_o ;
+wire \Q~output_o ;
+wire \R~input_o ;
+wire \Clk~input_o ;
+wire \R_g~combout ;
+wire \Qb~combout ;
+wire \Qa~combout ;
+
+
+// Location: LCCOMB_X2_Y27_N6
+cycloneiii_lcell_comb S_g(
+// Equation(s):
+// \S_g~combout  = LCELL((\S~input_o  & \Clk~input_o ))
+
+	.dataa(\S~input_o ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\Clk~input_o ),
+	.cin(gnd),
+	.combout(\S_g~combout ),
+	.cout());
+// synopsys translate_off
+defparam S_g.lut_mask = 16'hAA00;
+defparam S_g.sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y5_N22
+cycloneiii_io_ibuf \S~input (
+	.i(S),
+	.ibar(gnd),
+	.o(\S~input_o ));
+// synopsys translate_off
+defparam \S~input .bus_hold = "false";
+defparam \S~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOOBUF_X0_Y22_N23
+cycloneiii_io_obuf \Q~output (
+	.i(\Qa~combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\Q~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \Q~output .bus_hold = "false";
+defparam \Q~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y22_N8
+cycloneiii_io_ibuf \R~input (
+	.i(R),
+	.ibar(gnd),
+	.o(\R~input_o ));
+// synopsys translate_off
+defparam \R~input .bus_hold = "false";
+defparam \R~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X1_Y29_N8
+cycloneiii_io_ibuf \Clk~input (
+	.i(Clk),
+	.ibar(gnd),
+	.o(\Clk~input_o ));
+// synopsys translate_off
+defparam \Clk~input .bus_hold = "false";
+defparam \Clk~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y27_N2
+cycloneiii_lcell_comb R_g(
+// Equation(s):
+// \R_g~combout  = LCELL((\R~input_o  & \Clk~input_o ))
+
+	.dataa(gnd),
+	.datab(\R~input_o ),
+	.datac(gnd),
+	.datad(\Clk~input_o ),
+	.cin(gnd),
+	.combout(\R_g~combout ),
+	.cout());
+// synopsys translate_off
+defparam R_g.lut_mask = 16'hCC00;
+defparam R_g.sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y27_N12
+cycloneiii_lcell_comb Qb(
+// Equation(s):
+// \Qb~combout  = LCELL((!\S_g~combout  & !\Qa~combout ))
+
+	.dataa(\S_g~combout ),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\Qa~combout ),
+	.cin(gnd),
+	.combout(\Qb~combout ),
+	.cout());
+// synopsys translate_off
+defparam Qb.lut_mask = 16'h0055;
+defparam Qb.sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X2_Y27_N0
+cycloneiii_lcell_comb Qa(
+// Equation(s):
+// \Qa~combout  = LCELL((!\R_g~combout  & !\Qb~combout ))
+
+	.dataa(gnd),
+	.datab(\R_g~combout ),
+	.datac(gnd),
+	.datad(\Qb~combout ),
+	.cin(gnd),
+	.combout(\Qa~combout ),
+	.cout());
+// synopsys translate_off
+defparam Qa.lut_mask = 16'h0033;
+defparam Qa.sum_lutc_input = "datac";
+// synopsys translate_on
+
+assign Q = \Q~output_o ;
+
+endmodule

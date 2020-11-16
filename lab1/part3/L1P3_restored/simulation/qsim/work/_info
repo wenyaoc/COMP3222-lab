@@ -4,82 +4,82 @@ K3
 cModel Technology
 Z0 dD:\unsw\3222\lab\lab1\part3\L1P3_restored\simulation\qsim
 vL1P3
-Z1 I9[9zC:4Z4Zd^i>]RD[lWh2
-Z2 VM8Mzc2lE:biJ[l3n2h`^03
-Z3 dD:\unsw\3222\lab\lab1\part3\L1P3_restored\simulation\qsim
-Z4 w1600706742
-Z5 8L1P3.vo
-Z6 FL1P3.vo
+Z1 !s100 _UmHI5JD=<bEQzHo8BQ4J2
+Z2 I9[9zC:4Z4Zd^i>]RD[lWh2
+Z3 VM8Mzc2lE:biJ[l3n2h`^03
+Z4 dD:\unsw\3222\lab\lab1\part3\L1P3_restored\simulation\qsim
+Z5 w1600850307
+Z6 8L1P3.vo
+Z7 FL1P3.vo
 L0 31
-Z7 OV;L;10.1d;51
+Z8 OV;L;10.1d;51
 r1
 31
-Z8 o-work work -O0
-Z9 n@l1@p3
+Z9 !s90 -work|work|L1P3.vo|
+Z10 o-work work -O0
+Z11 n@l1@p3
 !i10b 1
-Z10 !s100 _UmHI5JD=<bEQzHo8BQ4J2
 !s85 0
-Z11 !s108 1600706750.763000
-Z12 !s107 L1P3.vo|
-Z13 !s90 -work|work|L1P3.vo|
+Z12 !s108 1600850310.166000
+Z13 !s107 L1P3.vo|
 !s101 -O0
 vL1P3_vlg_check_tst
 !i10b 1
-!s100 E?Yfge?<VLeh8F7hCFTOB3
-IRab`fD5CDUmjRXCTX^[cL1
-VS>GFba3oDEczJa67IFm[33
-R3
-Z14 w1600706740
-Z15 8L1P3.vt
-Z16 FL1P3.vt
+Z14 !s100 E?Yfge?<VLeh8F7hCFTOB3
+Z15 IRab`fD5CDUmjRXCTX^[cL1
+Z16 VS>GFba3oDEczJa67IFm[33
+R4
+Z17 w1600850305
+Z18 8L1P3.vt
+Z19 FL1P3.vt
 L0 57
-R7
+R8
 r1
 !s85 0
 31
-Z17 !s108 1600706751.086000
-Z18 !s107 L1P3.vt|
-Z19 !s90 -work|work|L1P3.vt|
+Z20 !s108 1600850310.383000
+Z21 !s107 L1P3.vt|
+Z22 !s90 -work|work|L1P3.vt|
 !s101 -O0
-R8
-n@l1@p3_vlg_check_tst
+R10
+Z23 n@l1@p3_vlg_check_tst
 vL1P3_vlg_sample_tst
 !i10b 1
-!s100 B9U<JGkYVZY;0MzMY]gXX2
-IfnD1KI3@R@Y2cDzAcE@U@1
-Vd;;f9JBlkN^RScM]0W5kf1
-R3
-R14
-R15
-R16
-L0 29
-R7
-r1
-!s85 0
-31
+Z24 !s100 B9U<JGkYVZY;0MzMY]gXX2
+Z25 IfnD1KI3@R@Y2cDzAcE@U@1
+Z26 Vd;;f9JBlkN^RScM]0W5kf1
+R4
 R17
 R18
 R19
-!s101 -O0
+L0 29
 R8
-n@l1@p3_vlg_sample_tst
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z27 n@l1@p3_vlg_sample_tst
 vL1P3_vlg_vec_tst
 !i10b 1
-!s100 h4GYGncVaiD9U4hE08<gj3
-I:IcmSH3U9iYgh5PB^k?gz3
-VoGd]VojJI65T4c^nmcW>[0
-R3
-R14
-R15
-R16
-L0 313
-R7
-r1
-!s85 0
-31
+Z28 !s100 h4GYGncVaiD9U4hE08<gj3
+Z29 I:IcmSH3U9iYgh5PB^k?gz3
+Z30 VoGd]VojJI65T4c^nmcW>[0
+R4
 R17
 R18
 R19
-!s101 -O0
+Z31 L0 313
 R8
-n@l1@p3_vlg_vec_tst
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z32 n@l1@p3_vlg_vec_tst

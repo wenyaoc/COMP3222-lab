@@ -1,0 +1,1738 @@
+TimeQuest Timing Analyzer report for L7P4
+Sun Nov 01 20:19:41 2020
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'CLOCK_50'
+ 13. Slow 1200mV 85C Model Hold: 'CLOCK_50'
+ 14. Slow 1200mV 85C Model Minimum Pulse Width: 'CLOCK_50'
+ 15. Setup Times
+ 16. Hold Times
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Slow 1200mV 85C Model Metastability Report
+ 20. Slow 1200mV 0C Model Fmax Summary
+ 21. Slow 1200mV 0C Model Setup Summary
+ 22. Slow 1200mV 0C Model Hold Summary
+ 23. Slow 1200mV 0C Model Recovery Summary
+ 24. Slow 1200mV 0C Model Removal Summary
+ 25. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 26. Slow 1200mV 0C Model Setup: 'CLOCK_50'
+ 27. Slow 1200mV 0C Model Hold: 'CLOCK_50'
+ 28. Slow 1200mV 0C Model Minimum Pulse Width: 'CLOCK_50'
+ 29. Setup Times
+ 30. Hold Times
+ 31. Clock to Output Times
+ 32. Minimum Clock to Output Times
+ 33. Slow 1200mV 0C Model Metastability Report
+ 34. Fast 1200mV 0C Model Setup Summary
+ 35. Fast 1200mV 0C Model Hold Summary
+ 36. Fast 1200mV 0C Model Recovery Summary
+ 37. Fast 1200mV 0C Model Removal Summary
+ 38. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 39. Fast 1200mV 0C Model Setup: 'CLOCK_50'
+ 40. Fast 1200mV 0C Model Hold: 'CLOCK_50'
+ 41. Fast 1200mV 0C Model Minimum Pulse Width: 'CLOCK_50'
+ 42. Setup Times
+ 43. Hold Times
+ 44. Clock to Output Times
+ 45. Minimum Clock to Output Times
+ 46. Fast 1200mV 0C Model Metastability Report
+ 47. Multicorner Timing Analysis Summary
+ 48. Setup Times
+ 49. Hold Times
+ 50. Clock to Output Times
+ 51. Minimum Clock to Output Times
+ 52. Board Trace Model Assignments
+ 53. Input Transition Times
+ 54. Slow Corner Signal Integrity Metrics
+ 55. Fast Corner Signal Integrity Metrics
+ 56. Setup Transfers
+ 57. Hold Transfers
+ 58. Report TCCS
+ 59. Report RSKM
+ 60. Unconstrained Paths
+ 61. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; L7P4                                                              ;
+; Device Family      ; Cyclone III                                                       ;
+; Device Name        ; EP3C16F484C6                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Enabled                                                           ;
++--------------------+-------------------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ; < 0.1%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                               ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; CLOCK_50   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLOCK_50 } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                        ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 304.97 MHz ; 250.0 MHz       ; CLOCK_50   ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++----------+--------+-----------------+
+; Clock    ; Slack  ; End Point TNS   ;
++----------+--------+-----------------+
+; CLOCK_50 ; -2.279 ; -59.467         ;
++----------+--------+-----------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++----------+-------+-----------------+
+; Clock    ; Slack ; End Point TNS   ;
++----------+-------+-----------------+
+; CLOCK_50 ; 0.358 ; 0.000           ;
++----------+-------+-----------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++----------+--------+-------------------------------+
+; Clock    ; Slack  ; End Point TNS                 ;
++----------+--------+-------------------------------+
+; CLOCK_50 ; -3.000 ; -41.000                       ;
++----------+--------+-------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'CLOCK_50'                                                                                                ;
++--------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                  ; To Node                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; -2.279 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 3.213      ;
+; -2.278 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 3.212      ;
+; -2.256 ; half_sec_timer:Timer|Done  ; shiftrne:LenReg|Q[0]       ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.179      ;
+; -2.256 ; half_sec_timer:Timer|Done  ; shiftrne:CodeReg|Q[1]      ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.179      ;
+; -2.256 ; half_sec_timer:Timer|Done  ; shiftrne:CodeReg|Q[0]      ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.072     ; 3.179      ;
+; -2.119 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.429     ; 2.685      ;
+; -2.117 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.429     ; 2.683      ;
+; -2.089 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.063     ; 3.021      ;
+; -2.087 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.063     ; 3.019      ;
+; -2.059 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.993      ;
+; -2.058 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.992      ;
+; -2.016 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.950      ;
+; -2.015 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.949      ;
+; -2.009 ; half_sec_timer:Timer|Q[14] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.429     ; 2.575      ;
+; -2.009 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.943      ;
+; -2.008 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.942      ;
+; -2.007 ; half_sec_timer:Timer|Q[14] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.429     ; 2.573      ;
+; -1.998 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.932      ;
+; -1.996 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.930      ;
+; -1.983 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.917      ;
+; -1.981 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.915      ;
+; -1.972 ; half_sec_timer:Timer|Done  ; shiftrne:LenReg|Q[3]       ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.254      ; 3.221      ;
+; -1.972 ; half_sec_timer:Timer|Done  ; shiftrne:LenReg|Q[2]       ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.254      ; 3.221      ;
+; -1.972 ; half_sec_timer:Timer|Done  ; shiftrne:LenReg|Q[1]       ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.254      ; 3.221      ;
+; -1.972 ; half_sec_timer:Timer|Done  ; shiftrne:CodeReg|Q[2]      ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.254      ; 3.221      ;
+; -1.972 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.259      ;
+; -1.954 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 2.890      ;
+; -1.930 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.290      ; 3.215      ;
+; -1.917 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.204      ;
+; -1.916 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.203      ;
+; -1.916 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.203      ;
+; -1.912 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.846      ;
+; -1.901 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 2.837      ;
+; -1.897 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Done  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 2.833      ;
+; -1.894 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 2.830      ;
+; -1.891 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.825      ;
+; -1.889 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.823      ;
+; -1.881 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.168      ;
+; -1.863 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 2.799      ;
+; -1.859 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.146      ;
+; -1.841 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 2.777      ;
+; -1.833 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.767      ;
+; -1.832 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.290      ; 3.117      ;
+; -1.832 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.766      ;
+; -1.828 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.762      ;
+; -1.827 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.761      ;
+; -1.820 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.754      ;
+; -1.819 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.753      ;
+; -1.807 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.290      ; 3.092      ;
+; -1.800 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.063     ; 2.732      ;
+; -1.798 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.063     ; 2.730      ;
+; -1.790 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.077      ;
+; -1.790 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.077      ;
+; -1.784 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.071      ;
+; -1.771 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.058      ;
+; -1.768 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.055      ;
+; -1.767 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.427     ; 2.335      ;
+; -1.763 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Done  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.427     ; 2.331      ;
+; -1.761 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.048      ;
+; -1.760 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.427     ; 2.328      ;
+; -1.760 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.076     ; 2.679      ;
+; -1.760 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.076     ; 2.679      ;
+; -1.759 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.076     ; 2.678      ;
+; -1.754 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.041      ;
+; -1.753 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 2.689      ;
+; -1.742 ; half_sec_timer:Timer|Q[23] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.429     ; 2.308      ;
+; -1.741 ; half_sec_timer:Timer|Q[23] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.429     ; 2.307      ;
+; -1.741 ; half_sec_timer:Timer|Q[22] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.429     ; 2.307      ;
+; -1.739 ; half_sec_timer:Timer|Q[22] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.429     ; 2.305      ;
+; -1.736 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.023      ;
+; -1.734 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.021      ;
+; -1.733 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Done  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.667      ;
+; -1.730 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 2.664      ;
+; -1.730 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.290      ; 3.015      ;
+; -1.730 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.290      ; 3.015      ;
+; -1.729 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.290      ; 3.014      ;
+; -1.729 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 3.016      ;
+; -1.726 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.290      ; 3.011      ;
+; -1.716 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 2.652      ;
+; -1.707 ; half_sec_timer:Timer|Q[18] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.429     ; 2.273      ;
+; -1.705 ; half_sec_timer:Timer|Done  ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.073     ; 2.627      ;
+; -1.705 ; half_sec_timer:Timer|Q[18] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.429     ; 2.271      ;
+; -1.703 ; half_sec_timer:Timer|Q[19] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.429     ; 2.269      ;
+; -1.702 ; half_sec_timer:Timer|Done  ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.073     ; 2.624      ;
+; -1.702 ; half_sec_timer:Timer|Done  ; y_Q.Morse_2                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.073     ; 2.624      ;
+; -1.701 ; half_sec_timer:Timer|Q[19] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.429     ; 2.267      ;
+; -1.697 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 2.984      ;
+; -1.697 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 2.984      ;
+; -1.696 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 2.983      ;
+; -1.696 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 2.983      ;
+; -1.677 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 2.964      ;
+; -1.669 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 2.605      ;
+; -1.667 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 2.603      ;
+; -1.664 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 2.600      ;
+; -1.661 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Done  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.059     ; 2.597      ;
+; -1.657 ; half_sec_timer:Timer|Q[14] ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.427     ; 2.225      ;
+; -1.656 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.076     ; 2.575      ;
+; -1.656 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.076     ; 2.575      ;
+; -1.655 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 2.942      ;
+; -1.654 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.292      ; 2.941      ;
++--------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'CLOCK_50'                                                                                                ;
++-------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                  ; To Node                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; 0.358 ; y_Q.Morse_1                ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.577      ;
+; 0.358 ; y_Q.Morse_2                ; y_Q.Morse_2                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.577      ;
+; 0.358 ; y_Q.Morse_3                ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.577      ;
+; 0.358 ; y_Q.Init                   ; y_Q.Init                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.577      ;
+; 0.374 ; y_Q.Morse_1                ; y_Q.Morse_2                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.593      ;
+; 0.395 ; y_Q.Morse_3                ; y_Q.Interval               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.614      ;
+; 0.405 ; y_Q.Interval               ; y_Q.Init                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.624      ;
+; 0.536 ; shiftrne:CodeReg|Q[1]      ; shiftrne:CodeReg|Q[0]      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.754      ;
+; 0.555 ; half_sec_timer:Timer|Q[23] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.076      ; 0.788      ;
+; 0.557 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.775      ;
+; 0.559 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[2]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.777      ;
+; 0.560 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.778      ;
+; 0.562 ; shiftrne:LenReg|Q[3]       ; shiftrne:LenReg|Q[2]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.075      ; 0.794      ;
+; 0.562 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.780      ;
+; 0.569 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.787      ;
+; 0.569 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[15] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.787      ;
+; 0.570 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[1]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.788      ;
+; 0.570 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[17] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.788      ;
+; 0.572 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[3]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.790      ;
+; 0.573 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.791      ;
+; 0.573 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.791      ;
+; 0.598 ; shiftrne:LenReg|Q[2]       ; shiftrne:LenReg|Q[1]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.075      ; 0.830      ;
+; 0.703 ; y_Q.Interval               ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.922      ;
+; 0.720 ; shiftrne:CodeReg|Q[2]      ; shiftrne:CodeReg|Q[1]      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.265     ; 0.612      ;
+; 0.721 ; shiftrne:LenReg|Q[1]       ; shiftrne:LenReg|Q[0]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.265     ; 0.613      ;
+; 0.727 ; shiftrne:LenReg|Q[0]       ; y_Q.Init                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.945      ;
+; 0.775 ; y_Q.Morse_2                ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.994      ;
+; 0.813 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.427      ; 1.397      ;
+; 0.832 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.050      ;
+; 0.844 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.062      ;
+; 0.844 ; half_sec_timer:Timer|Q[22] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.076      ; 1.077      ;
+; 0.845 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[2]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.063      ;
+; 0.846 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.064      ;
+; 0.847 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[3]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.065      ;
+; 0.848 ; shiftrne:LenReg|Q[0]       ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.066      ;
+; 0.848 ; half_sec_timer:Timer|Q[22] ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.076      ; 1.081      ;
+; 0.849 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.067      ;
+; 0.849 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[1]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.067      ;
+; 0.849 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.067      ;
+; 0.851 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.076      ; 1.084      ;
+; 0.851 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[2]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.069      ;
+; 0.852 ; half_sec_timer:Timer|Q[20] ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.076      ; 1.085      ;
+; 0.860 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.078      ;
+; 0.862 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.080      ;
+; 0.883 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.427      ; 1.467      ;
+; 0.886 ; y_Q.Interval               ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.105      ;
+; 0.886 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.429      ; 1.472      ;
+; 0.899 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.429      ; 1.485      ;
+; 0.906 ; y_Q.Init                   ; y_Q.Interval               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.125      ;
+; 0.920 ; shiftrne:CodeReg|Q[0]      ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.138      ;
+; 0.924 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.427      ; 1.508      ;
+; 0.928 ; half_sec_timer:Timer|Q[24] ; half_sec_timer:Timer|Q[16] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.076      ; 1.161      ;
+; 0.930 ; half_sec_timer:Timer|Q[24] ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.076      ; 1.163      ;
+; 0.930 ; half_sec_timer:Timer|Q[24] ; half_sec_timer:Timer|Q[19] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.076      ; 1.163      ;
+; 0.942 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.160      ;
+; 0.944 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.162      ;
+; 0.944 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.162      ;
+; 0.946 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.164      ;
+; 0.954 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[17] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.172      ;
+; 0.955 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[3]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.173      ;
+; 0.956 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.174      ;
+; 0.956 ; half_sec_timer:Timer|Q[12] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.427      ; 1.540      ;
+; 0.957 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.175      ;
+; 0.959 ; half_sec_timer:Timer|Q[20] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.076      ; 1.192      ;
+; 0.959 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.177      ;
+; 0.961 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.179      ;
+; 0.961 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[3]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.179      ;
+; 0.963 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.181      ;
+; 0.963 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.181      ;
+; 0.974 ; half_sec_timer:Timer|Q[24] ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.076      ; 1.207      ;
+; 0.976 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.194      ;
+; 0.993 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.429      ; 1.579      ;
+; 0.994 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.427      ; 1.578      ;
+; 0.995 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.427      ; 1.579      ;
+; 0.997 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.215      ;
+; 1.011 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.429      ; 1.597      ;
+; 1.036 ; shiftrne:LenReg|Q[0]       ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.254      ;
+; 1.038 ; shiftrne:LenReg|Q[0]       ; y_Q.Interval               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.256      ;
+; 1.043 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[16] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.427      ; 1.627      ;
+; 1.044 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[14] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.429      ; 1.630      ;
+; 1.044 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.427      ; 1.628      ;
+; 1.045 ; y_Q.Init                   ; shiftrne:LenReg|Q[3]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.402      ; 1.604      ;
+; 1.045 ; y_Q.Init                   ; shiftrne:LenReg|Q[2]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.402      ; 1.604      ;
+; 1.045 ; y_Q.Init                   ; shiftrne:LenReg|Q[1]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.402      ; 1.604      ;
+; 1.045 ; y_Q.Init                   ; shiftrne:CodeReg|Q[2]      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.402      ; 1.604      ;
+; 1.056 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.274      ;
+; 1.057 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[14] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.429      ; 1.643      ;
+; 1.058 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.276      ;
+; 1.067 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.285      ;
+; 1.068 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.286      ;
+; 1.069 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[15] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.063      ; 1.289      ;
+; 1.070 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.288      ;
+; 1.071 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.289      ;
+; 1.073 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.291      ;
+; 1.073 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.291      ;
+; 1.073 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.291      ;
+; 1.074 ; half_sec_timer:Timer|Q[21] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.076      ; 1.307      ;
+; 1.075 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.293      ;
+; 1.076 ; y_Q.Interval               ; y_Q.Interval               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.295      ;
+; 1.082 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[15] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.063      ; 1.302      ;
++-------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width: 'CLOCK_50'                                                         ;
++--------+--------------+----------------+-----------------+----------+------------+----------------------------+
+; Slack  ; Actual Width ; Required Width ; Type            ; Clock    ; Clock Edge ; Target                     ;
++--------+--------------+----------------+-----------------+----------+------------+----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate       ; CLOCK_50 ; Rise       ; CLOCK_50                   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Done  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[16] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[17] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[18] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[19] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[20] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[21] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[22] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[23] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[24] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[0]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[1]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[2]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[0]       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[1]       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[2]       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[3]       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Init                   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Interval               ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Morse_1                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Morse_2                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Morse_3                ;
+; 0.076  ; 0.260        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[13] ;
+; 0.076  ; 0.260        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[14] ;
+; 0.076  ; 0.260        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[16] ;
+; 0.076  ; 0.260        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[18] ;
+; 0.076  ; 0.260        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[19] ;
+; 0.076  ; 0.260        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[20] ;
+; 0.076  ; 0.260        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[21] ;
+; 0.076  ; 0.260        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[22] ;
+; 0.076  ; 0.260        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[23] ;
+; 0.076  ; 0.260        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[24] ;
+; 0.092  ; 0.276        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[2]      ;
+; 0.092  ; 0.276        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[1]       ;
+; 0.092  ; 0.276        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[2]       ;
+; 0.092  ; 0.276        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[3]       ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Done  ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[0]  ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[10] ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[11] ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[12] ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[15] ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[17] ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[1]  ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[2]  ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[3]  ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[4]  ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[5]  ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[6]  ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[7]  ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[8]  ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[9]  ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[0]      ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[1]      ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[0]       ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Init                   ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Interval               ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Morse_1                ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Morse_2                ;
+; 0.094  ; 0.278        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Morse_3                ;
+; 0.238  ; 0.238        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[13]|clk            ;
+; 0.238  ; 0.238        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[14]|clk            ;
+; 0.238  ; 0.238        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[16]|clk            ;
+; 0.238  ; 0.238        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[18]|clk            ;
+; 0.238  ; 0.238        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[19]|clk            ;
+; 0.238  ; 0.238        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[20]|clk            ;
+; 0.238  ; 0.238        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[21]|clk            ;
+; 0.238  ; 0.238        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[22]|clk            ;
+; 0.238  ; 0.238        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[23]|clk            ;
+; 0.238  ; 0.238        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[24]|clk            ;
+; 0.245  ; 0.245        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~input|o           ;
+; 0.253  ; 0.253        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; CodeReg|Q[2]|clk           ;
+; 0.253  ; 0.253        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; LenReg|Q[1]|clk            ;
+; 0.253  ; 0.253        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; LenReg|Q[2]|clk            ;
+; 0.253  ; 0.253        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; LenReg|Q[3]|clk            ;
+; 0.255  ; 0.255        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[0]|clk             ;
+; 0.255  ; 0.255        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[10]|clk            ;
+; 0.255  ; 0.255        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[11]|clk            ;
+; 0.255  ; 0.255        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[1]|clk             ;
+; 0.255  ; 0.255        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[2]|clk             ;
+; 0.255  ; 0.255        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[3]|clk             ;
+; 0.255  ; 0.255        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[4]|clk             ;
+; 0.255  ; 0.255        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[5]|clk             ;
++--------+--------------+----------------+-----------------+----------+------------+----------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; KEY[*]    ; CLOCK_50   ; 1.997 ; 2.421 ; Rise       ; CLOCK_50        ;
+;  KEY[1]   ; CLOCK_50   ; 1.997 ; 2.421 ; Rise       ; CLOCK_50        ;
+; SW[*]     ; CLOCK_50   ; 2.137 ; 2.580 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; 1.935 ; 2.400 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; 1.856 ; 2.377 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; 2.137 ; 2.580 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; KEY[*]    ; CLOCK_50   ; -0.642 ; -1.162 ; Rise       ; CLOCK_50        ;
+;  KEY[1]   ; CLOCK_50   ; -0.642 ; -1.162 ; Rise       ; CLOCK_50        ;
+; SW[*]     ; CLOCK_50   ; -0.693 ; -1.202 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; -0.771 ; -1.267 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; -0.693 ; -1.202 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; -0.895 ; -1.383 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 7.746 ; 7.515 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 5.550 ; 5.487 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 5.563 ; 5.517 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 7.746 ; 7.515 ; Rise       ; CLOCK_50        ;
+;  LEDG[4]  ; CLOCK_50   ; 5.535 ; 5.436 ; Rise       ; CLOCK_50        ;
+;  LEDG[5]  ; CLOCK_50   ; 5.767 ; 5.659 ; Rise       ; CLOCK_50        ;
+;  LEDG[6]  ; CLOCK_50   ; 5.879 ; 5.805 ; Rise       ; CLOCK_50        ;
+;  LEDG[7]  ; CLOCK_50   ; 5.918 ; 5.859 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 6.181 ; 6.364 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 5.425 ; 5.324 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 5.439 ; 5.373 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 5.451 ; 5.402 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 7.621 ; 7.388 ; Rise       ; CLOCK_50        ;
+;  LEDG[4]  ; CLOCK_50   ; 5.425 ; 5.324 ; Rise       ; CLOCK_50        ;
+;  LEDG[5]  ; CLOCK_50   ; 5.647 ; 5.539 ; Rise       ; CLOCK_50        ;
+;  LEDG[6]  ; CLOCK_50   ; 5.756 ; 5.679 ; Rise       ; CLOCK_50        ;
+;  LEDG[7]  ; CLOCK_50   ; 5.793 ; 5.732 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 5.962 ; 6.008 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+----------------------------------------------
+; Slow 1200mV 85C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                         ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 336.25 MHz ; 250.0 MHz       ; CLOCK_50   ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++----------+--------+----------------+
+; Clock    ; Slack  ; End Point TNS  ;
++----------+--------+----------------+
+; CLOCK_50 ; -1.974 ; -49.439        ;
++----------+--------+----------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++----------+-------+----------------+
+; Clock    ; Slack ; End Point TNS  ;
++----------+-------+----------------+
+; CLOCK_50 ; 0.313 ; 0.000          ;
++----------+-------+----------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++----------+--------+------------------------------+
+; Clock    ; Slack  ; End Point TNS                ;
++----------+--------+------------------------------+
+; CLOCK_50 ; -3.000 ; -41.000                      ;
++----------+--------+------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'CLOCK_50'                                                                                                 ;
++--------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                  ; To Node                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; -1.974 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.914      ;
+; -1.973 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.913      ;
+; -1.946 ; half_sec_timer:Timer|Done  ; shiftrne:LenReg|Q[0]       ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.064     ; 2.877      ;
+; -1.946 ; half_sec_timer:Timer|Done  ; shiftrne:CodeReg|Q[1]      ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.064     ; 2.877      ;
+; -1.946 ; half_sec_timer:Timer|Done  ; shiftrne:CodeReg|Q[0]      ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.064     ; 2.877      ;
+; -1.785 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.383     ; 2.397      ;
+; -1.784 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.383     ; 2.396      ;
+; -1.775 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.056     ; 2.714      ;
+; -1.774 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.056     ; 2.713      ;
+; -1.769 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.709      ;
+; -1.768 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.708      ;
+; -1.735 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.675      ;
+; -1.734 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.674      ;
+; -1.728 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.668      ;
+; -1.727 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.667      ;
+; -1.710 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.650      ;
+; -1.709 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.649      ;
+; -1.688 ; half_sec_timer:Timer|Done  ; shiftrne:LenReg|Q[3]       ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.231      ; 2.914      ;
+; -1.688 ; half_sec_timer:Timer|Done  ; shiftrne:LenReg|Q[2]       ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.231      ; 2.914      ;
+; -1.688 ; half_sec_timer:Timer|Done  ; shiftrne:LenReg|Q[1]       ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.231      ; 2.914      ;
+; -1.688 ; half_sec_timer:Timer|Done  ; shiftrne:CodeReg|Q[2]      ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.231      ; 2.914      ;
+; -1.683 ; half_sec_timer:Timer|Q[14] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.383     ; 2.295      ;
+; -1.682 ; half_sec_timer:Timer|Q[14] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.383     ; 2.294      ;
+; -1.662 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.602      ;
+; -1.661 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.601      ;
+; -1.640 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.895      ;
+; -1.639 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.894      ;
+; -1.639 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.894      ;
+; -1.633 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.053     ; 2.575      ;
+; -1.626 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.053     ; 2.568      ;
+; -1.623 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.878      ;
+; -1.618 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.053     ; 2.560      ;
+; -1.616 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.556      ;
+; -1.615 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.555      ;
+; -1.613 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Done  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.053     ; 2.555      ;
+; -1.609 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 2.550      ;
+; -1.599 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.259      ; 2.853      ;
+; -1.572 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.512      ;
+; -1.571 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.511      ;
+; -1.569 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.509      ;
+; -1.568 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.508      ;
+; -1.566 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.506      ;
+; -1.565 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 2.505      ;
+; -1.556 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.053     ; 2.498      ;
+; -1.546 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.801      ;
+; -1.537 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.053     ; 2.479      ;
+; -1.527 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.782      ;
+; -1.524 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.056     ; 2.463      ;
+; -1.523 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.056     ; 2.462      ;
+; -1.522 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.777      ;
+; -1.520 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.775      ;
+; -1.517 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.259      ; 2.771      ;
+; -1.516 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.771      ;
+; -1.508 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.259      ; 2.762      ;
+; -1.475 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.381     ; 2.089      ;
+; -1.467 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.381     ; 2.081      ;
+; -1.465 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.053     ; 2.407      ;
+; -1.462 ; half_sec_timer:Timer|Q[23] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.383     ; 2.074      ;
+; -1.462 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Done  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.381     ; 2.076      ;
+; -1.461 ; half_sec_timer:Timer|Q[23] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.383     ; 2.073      ;
+; -1.461 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.068     ; 2.388      ;
+; -1.460 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.068     ; 2.387      ;
+; -1.460 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.068     ; 2.387      ;
+; -1.455 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.710      ;
+; -1.445 ; half_sec_timer:Timer|Q[22] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.383     ; 2.057      ;
+; -1.444 ; half_sec_timer:Timer|Q[22] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.383     ; 2.056      ;
+; -1.441 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.259      ; 2.695      ;
+; -1.440 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.259      ; 2.694      ;
+; -1.440 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.259      ; 2.694      ;
+; -1.440 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 2.381      ;
+; -1.436 ; half_sec_timer:Timer|Done  ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.064     ; 2.367      ;
+; -1.435 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.690      ;
+; -1.435 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Done  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 2.376      ;
+; -1.434 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.689      ;
+; -1.434 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.689      ;
+; -1.434 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.689      ;
+; -1.433 ; half_sec_timer:Timer|Done  ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.064     ; 2.364      ;
+; -1.433 ; half_sec_timer:Timer|Done  ; y_Q.Morse_2                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.064     ; 2.364      ;
+; -1.428 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.053     ; 2.370      ;
+; -1.423 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.678      ;
+; -1.418 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.673      ;
+; -1.414 ; half_sec_timer:Timer|Q[18] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.383     ; 2.026      ;
+; -1.414 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.669      ;
+; -1.414 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.669      ;
+; -1.413 ; half_sec_timer:Timer|Q[18] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.383     ; 2.025      ;
+; -1.411 ; half_sec_timer:Timer|Q[19] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.383     ; 2.023      ;
+; -1.410 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.259      ; 2.664      ;
+; -1.410 ; half_sec_timer:Timer|Q[19] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.383     ; 2.022      ;
+; -1.406 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.053     ; 2.348      ;
+; -1.402 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Done  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.053     ; 2.344      ;
+; -1.401 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.656      ;
+; -1.400 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.655      ;
+; -1.400 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.655      ;
+; -1.398 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.053     ; 2.340      ;
+; -1.394 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.649      ;
+; -1.393 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.648      ;
+; -1.393 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.648      ;
+; -1.384 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.639      ;
+; -1.380 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.053     ; 2.322      ;
+; -1.376 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.260      ; 2.631      ;
++--------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'CLOCK_50'                                                                                                 ;
++-------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                  ; To Node                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; 0.313 ; y_Q.Morse_1                ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; y_Q.Morse_2                ; y_Q.Morse_2                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; y_Q.Morse_3                ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; y_Q.Init                   ; y_Q.Init                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.511      ;
+; 0.341 ; y_Q.Morse_1                ; y_Q.Morse_2                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.539      ;
+; 0.359 ; y_Q.Morse_3                ; y_Q.Interval               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.557      ;
+; 0.361 ; y_Q.Interval               ; y_Q.Init                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.559      ;
+; 0.482 ; shiftrne:CodeReg|Q[1]      ; shiftrne:CodeReg|Q[0]      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.681      ;
+; 0.498 ; half_sec_timer:Timer|Q[23] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.068      ; 0.710      ;
+; 0.500 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.699      ;
+; 0.502 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[2]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.701      ;
+; 0.502 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.701      ;
+; 0.505 ; shiftrne:LenReg|Q[3]       ; shiftrne:LenReg|Q[2]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.067      ; 0.716      ;
+; 0.505 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.704      ;
+; 0.510 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.709      ;
+; 0.511 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[1]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.710      ;
+; 0.511 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[15] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.709      ;
+; 0.512 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[17] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.710      ;
+; 0.514 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[3]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.713      ;
+; 0.514 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.713      ;
+; 0.515 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.714      ;
+; 0.537 ; shiftrne:LenReg|Q[2]       ; shiftrne:LenReg|Q[1]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.067      ; 0.748      ;
+; 0.640 ; y_Q.Interval               ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.838      ;
+; 0.652 ; shiftrne:LenReg|Q[1]       ; shiftrne:LenReg|Q[0]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.240     ; 0.556      ;
+; 0.652 ; shiftrne:CodeReg|Q[2]      ; shiftrne:CodeReg|Q[1]      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.240     ; 0.556      ;
+; 0.665 ; shiftrne:LenReg|Q[0]       ; y_Q.Init                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.863      ;
+; 0.704 ; y_Q.Morse_2                ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.902      ;
+; 0.710 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.381      ; 1.235      ;
+; 0.744 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.943      ;
+; 0.748 ; half_sec_timer:Timer|Q[22] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.068      ; 0.960      ;
+; 0.751 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[3]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.950      ;
+; 0.752 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[1]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.951      ;
+; 0.754 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.953      ;
+; 0.754 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.953      ;
+; 0.755 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[2]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.954      ;
+; 0.758 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.957      ;
+; 0.759 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[2]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.958      ;
+; 0.759 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.958      ;
+; 0.764 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.963      ;
+; 0.766 ; half_sec_timer:Timer|Q[22] ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.068      ; 0.978      ;
+; 0.769 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.068      ; 0.981      ;
+; 0.771 ; half_sec_timer:Timer|Q[20] ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.068      ; 0.983      ;
+; 0.771 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.970      ;
+; 0.781 ; shiftrne:LenReg|Q[0]       ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.979      ;
+; 0.790 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.383      ; 1.317      ;
+; 0.792 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.381      ; 1.317      ;
+; 0.799 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.383      ; 1.326      ;
+; 0.802 ; y_Q.Interval               ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.000      ;
+; 0.805 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.381      ; 1.330      ;
+; 0.807 ; y_Q.Init                   ; y_Q.Interval               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.005      ;
+; 0.832 ; half_sec_timer:Timer|Q[24] ; half_sec_timer:Timer|Q[16] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.068      ; 1.044      ;
+; 0.832 ; half_sec_timer:Timer|Q[24] ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.068      ; 1.044      ;
+; 0.833 ; half_sec_timer:Timer|Q[24] ; half_sec_timer:Timer|Q[19] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.068      ; 1.045      ;
+; 0.833 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.032      ;
+; 0.836 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.035      ;
+; 0.840 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.039      ;
+; 0.843 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.042      ;
+; 0.844 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[17] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.042      ;
+; 0.844 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[3]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.043      ;
+; 0.847 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.046      ;
+; 0.848 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[3]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.047      ;
+; 0.848 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.047      ;
+; 0.849 ; half_sec_timer:Timer|Q[20] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.068      ; 1.061      ;
+; 0.850 ; shiftrne:CodeReg|Q[0]      ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.048      ;
+; 0.850 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.049      ;
+; 0.851 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.050      ;
+; 0.855 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.054      ;
+; 0.857 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.056      ;
+; 0.865 ; half_sec_timer:Timer|Q[12] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.381      ; 1.390      ;
+; 0.870 ; half_sec_timer:Timer|Q[24] ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.068      ; 1.082      ;
+; 0.879 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.383      ; 1.406      ;
+; 0.880 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.079      ;
+; 0.887 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.381      ; 1.412      ;
+; 0.888 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.381      ; 1.413      ;
+; 0.896 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.383      ; 1.423      ;
+; 0.897 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.096      ;
+; 0.932 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.131      ;
+; 0.939 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.138      ;
+; 0.940 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.139      ;
+; 0.943 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.142      ;
+; 0.944 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.143      ;
+; 0.944 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.143      ;
+; 0.945 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[14] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.383      ; 1.472      ;
+; 0.945 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[15] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.056      ; 1.145      ;
+; 0.946 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.145      ;
+; 0.949 ; shiftrne:LenReg|Q[0]       ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.147      ;
+; 0.950 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[16] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.381      ; 1.475      ;
+; 0.950 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.149      ;
+; 0.951 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.381      ; 1.476      ;
+; 0.951 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.150      ;
+; 0.953 ; shiftrne:LenReg|Q[0]       ; y_Q.Interval               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.151      ;
+; 0.953 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.152      ;
+; 0.954 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[14] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.383      ; 1.481      ;
+; 0.954 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[15] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.056      ; 1.154      ;
+; 0.957 ; y_Q.Init                   ; shiftrne:LenReg|Q[3]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.362      ; 1.463      ;
+; 0.957 ; y_Q.Init                   ; shiftrne:LenReg|Q[2]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.362      ; 1.463      ;
+; 0.957 ; y_Q.Init                   ; shiftrne:LenReg|Q[1]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.362      ; 1.463      ;
+; 0.957 ; y_Q.Init                   ; shiftrne:CodeReg|Q[2]      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.362      ; 1.463      ;
+; 0.959 ; half_sec_timer:Timer|Q[21] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.068      ; 1.171      ;
+; 0.965 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.383      ; 1.492      ;
++-------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width: 'CLOCK_50'                                                          ;
++--------+--------------+----------------+-----------------+----------+------------+----------------------------+
+; Slack  ; Actual Width ; Required Width ; Type            ; Clock    ; Clock Edge ; Target                     ;
++--------+--------------+----------------+-----------------+----------+------------+----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate       ; CLOCK_50 ; Rise       ; CLOCK_50                   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Done  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[16] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[17] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[18] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[19] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[20] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[21] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[22] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[23] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[24] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[0]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[1]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[2]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[0]       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[1]       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[2]       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[3]       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Init                   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Interval               ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Morse_1                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Morse_2                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Morse_3                ;
+; 0.079  ; 0.263        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[13] ;
+; 0.079  ; 0.263        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[14] ;
+; 0.079  ; 0.263        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[16] ;
+; 0.079  ; 0.263        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[18] ;
+; 0.079  ; 0.263        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[19] ;
+; 0.079  ; 0.263        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[20] ;
+; 0.079  ; 0.263        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[21] ;
+; 0.079  ; 0.263        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[22] ;
+; 0.079  ; 0.263        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[23] ;
+; 0.079  ; 0.263        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[24] ;
+; 0.089  ; 0.273        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Done  ;
+; 0.089  ; 0.273        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[0]  ;
+; 0.089  ; 0.273        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[10] ;
+; 0.089  ; 0.273        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[11] ;
+; 0.089  ; 0.273        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[12] ;
+; 0.089  ; 0.273        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[1]  ;
+; 0.089  ; 0.273        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[2]  ;
+; 0.089  ; 0.273        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[3]  ;
+; 0.089  ; 0.273        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[4]  ;
+; 0.089  ; 0.273        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[5]  ;
+; 0.089  ; 0.273        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[6]  ;
+; 0.089  ; 0.273        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[7]  ;
+; 0.089  ; 0.273        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[8]  ;
+; 0.089  ; 0.273        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[9]  ;
+; 0.090  ; 0.274        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[15] ;
+; 0.090  ; 0.274        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[17] ;
+; 0.090  ; 0.274        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[0]      ;
+; 0.090  ; 0.274        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[1]      ;
+; 0.090  ; 0.274        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[0]       ;
+; 0.090  ; 0.274        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Init                   ;
+; 0.090  ; 0.274        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Interval               ;
+; 0.090  ; 0.274        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Morse_1                ;
+; 0.090  ; 0.274        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Morse_2                ;
+; 0.090  ; 0.274        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Morse_3                ;
+; 0.096  ; 0.280        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[2]      ;
+; 0.096  ; 0.280        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[1]       ;
+; 0.096  ; 0.280        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[2]       ;
+; 0.096  ; 0.280        ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[3]       ;
+; 0.239  ; 0.239        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[13]|clk            ;
+; 0.239  ; 0.239        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[14]|clk            ;
+; 0.239  ; 0.239        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[16]|clk            ;
+; 0.239  ; 0.239        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[18]|clk            ;
+; 0.239  ; 0.239        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[19]|clk            ;
+; 0.239  ; 0.239        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[20]|clk            ;
+; 0.239  ; 0.239        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[21]|clk            ;
+; 0.239  ; 0.239        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[22]|clk            ;
+; 0.239  ; 0.239        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[23]|clk            ;
+; 0.239  ; 0.239        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[24]|clk            ;
+; 0.245  ; 0.245        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~input|o           ;
+; 0.249  ; 0.249        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Done|clk             ;
+; 0.249  ; 0.249        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[0]|clk             ;
+; 0.249  ; 0.249        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[10]|clk            ;
+; 0.249  ; 0.249        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[11]|clk            ;
+; 0.249  ; 0.249        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[12]|clk            ;
+; 0.249  ; 0.249        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[1]|clk             ;
+; 0.249  ; 0.249        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[2]|clk             ;
+; 0.249  ; 0.249        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[3]|clk             ;
+; 0.249  ; 0.249        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[4]|clk             ;
+; 0.249  ; 0.249        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[5]|clk             ;
+; 0.249  ; 0.249        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[6]|clk             ;
+; 0.249  ; 0.249        ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[7]|clk             ;
++--------+--------------+----------------+-----------------+----------+------------+----------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; KEY[*]    ; CLOCK_50   ; 1.689 ; 2.079 ; Rise       ; CLOCK_50        ;
+;  KEY[1]   ; CLOCK_50   ; 1.689 ; 2.079 ; Rise       ; CLOCK_50        ;
+; SW[*]     ; CLOCK_50   ; 1.814 ; 2.227 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; 1.641 ; 2.058 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; 1.575 ; 2.021 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; 1.814 ; 2.227 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; KEY[*]    ; CLOCK_50   ; -0.481 ; -0.947 ; Rise       ; CLOCK_50        ;
+;  KEY[1]   ; CLOCK_50   ; -0.481 ; -0.947 ; Rise       ; CLOCK_50        ;
+; SW[*]     ; CLOCK_50   ; -0.533 ; -0.971 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; -0.598 ; -1.042 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; -0.533 ; -0.971 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; -0.709 ; -1.151 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 7.446 ; 7.190 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 5.284 ; 5.196 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 5.295 ; 5.223 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 7.446 ; 7.190 ; Rise       ; CLOCK_50        ;
+;  LEDG[4]  ; CLOCK_50   ; 5.269 ; 5.145 ; Rise       ; CLOCK_50        ;
+;  LEDG[5]  ; CLOCK_50   ; 5.491 ; 5.351 ; Rise       ; CLOCK_50        ;
+;  LEDG[6]  ; CLOCK_50   ; 5.583 ; 5.476 ; Rise       ; CLOCK_50        ;
+;  LEDG[7]  ; CLOCK_50   ; 5.617 ; 5.526 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 5.828 ; 6.001 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 5.170 ; 5.046 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 5.184 ; 5.094 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 5.194 ; 5.120 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 7.335 ; 7.077 ; Rise       ; CLOCK_50        ;
+;  LEDG[4]  ; CLOCK_50   ; 5.170 ; 5.046 ; Rise       ; CLOCK_50        ;
+;  LEDG[5]  ; CLOCK_50   ; 5.384 ; 5.244 ; Rise       ; CLOCK_50        ;
+;  LEDG[6]  ; CLOCK_50   ; 5.472 ; 5.365 ; Rise       ; CLOCK_50        ;
+;  LEDG[7]  ; CLOCK_50   ; 5.505 ; 5.413 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 5.615 ; 5.713 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Slow 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++----------+--------+----------------+
+; Clock    ; Slack  ; End Point TNS  ;
++----------+--------+----------------+
+; CLOCK_50 ; -0.929 ; -18.699        ;
++----------+--------+----------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++----------+-------+----------------+
+; Clock    ; Slack ; End Point TNS  ;
++----------+-------+----------------+
+; CLOCK_50 ; 0.188 ; 0.000          ;
++----------+-------+----------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++----------+--------+------------------------------+
+; Clock    ; Slack  ; End Point TNS                ;
++----------+--------+------------------------------+
+; CLOCK_50 ; -3.000 ; -52.728                      ;
++----------+--------+------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'CLOCK_50'                                                                                                 ;
++--------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                  ; To Node                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; -0.929 ; half_sec_timer:Timer|Done  ; shiftrne:LenReg|Q[0]       ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.044     ; 1.872      ;
+; -0.929 ; half_sec_timer:Timer|Done  ; shiftrne:CodeReg|Q[1]      ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.044     ; 1.872      ;
+; -0.929 ; half_sec_timer:Timer|Done  ; shiftrne:CodeReg|Q[0]      ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.044     ; 1.872      ;
+; -0.834 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.786      ;
+; -0.833 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.785      ;
+; -0.793 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 1.744      ;
+; -0.792 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 1.743      ;
+; -0.778 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.232     ; 1.533      ;
+; -0.778 ; half_sec_timer:Timer|Done  ; shiftrne:LenReg|Q[3]       ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.132      ; 1.897      ;
+; -0.778 ; half_sec_timer:Timer|Done  ; shiftrne:LenReg|Q[2]       ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.132      ; 1.897      ;
+; -0.778 ; half_sec_timer:Timer|Done  ; shiftrne:LenReg|Q[1]       ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.132      ; 1.897      ;
+; -0.778 ; half_sec_timer:Timer|Done  ; shiftrne:CodeReg|Q[2]      ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.132      ; 1.897      ;
+; -0.777 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.232     ; 1.532      ;
+; -0.722 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.674      ;
+; -0.721 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.673      ;
+; -0.721 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.673      ;
+; -0.720 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.672      ;
+; -0.713 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.665      ;
+; -0.713 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.665      ;
+; -0.712 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.664      ;
+; -0.712 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.664      ;
+; -0.711 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.663      ;
+; -0.710 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.662      ;
+; -0.701 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.842      ;
+; -0.699 ; half_sec_timer:Timer|Q[14] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.232     ; 1.454      ;
+; -0.698 ; half_sec_timer:Timer|Q[14] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.232     ; 1.453      ;
+; -0.697 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.153      ; 1.837      ;
+; -0.672 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.034     ; 1.625      ;
+; -0.668 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.620      ;
+; -0.655 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.607      ;
+; -0.654 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.606      ;
+; -0.652 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.793      ;
+; -0.642 ; half_sec_timer:Timer|Done  ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.044     ; 1.585      ;
+; -0.639 ; half_sec_timer:Timer|Done  ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.044     ; 1.582      ;
+; -0.639 ; half_sec_timer:Timer|Done  ; y_Q.Morse_2                ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.044     ; 1.582      ;
+; -0.636 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.777      ;
+; -0.627 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.768      ;
+; -0.626 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.767      ;
+; -0.626 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.767      ;
+; -0.623 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.034     ; 1.576      ;
+; -0.612 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Done  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.034     ; 1.565      ;
+; -0.610 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.034     ; 1.563      ;
+; -0.607 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.034     ; 1.560      ;
+; -0.604 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.034     ; 1.557      ;
+; -0.586 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.153      ; 1.726      ;
+; -0.586 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.153      ; 1.726      ;
+; -0.585 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.537      ;
+; -0.585 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.726      ;
+; -0.585 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.153      ; 1.725      ;
+; -0.585 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.153      ; 1.725      ;
+; -0.584 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.536      ;
+; -0.580 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.721      ;
+; -0.577 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.718      ;
+; -0.577 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.529      ;
+; -0.576 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.528      ;
+; -0.575 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.153      ; 1.715      ;
+; -0.574 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.526      ;
+; -0.573 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.525      ;
+; -0.573 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.153      ; 1.713      ;
+; -0.571 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.043     ; 1.515      ;
+; -0.571 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Done  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.523      ;
+; -0.570 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.043     ; 1.514      ;
+; -0.570 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.043     ; 1.514      ;
+; -0.569 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 1.520      ;
+; -0.569 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.710      ;
+; -0.568 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 1.519      ;
+; -0.564 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.705      ;
+; -0.563 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.704      ;
+; -0.563 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.515      ;
+; -0.563 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.704      ;
+; -0.560 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.701      ;
+; -0.556 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.697      ;
+; -0.556 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.034     ; 1.509      ;
+; -0.556 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Done  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.231     ; 1.312      ;
+; -0.554 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.231     ; 1.310      ;
+; -0.552 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.693      ;
+; -0.552 ; half_sec_timer:Timer|Done  ; y_Q.Interval               ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.044     ; 1.495      ;
+; -0.548 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.231     ; 1.304      ;
+; -0.547 ; half_sec_timer:Timer|Q[22] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.232     ; 1.302      ;
+; -0.546 ; half_sec_timer:Timer|Q[22] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.232     ; 1.301      ;
+; -0.539 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.680      ;
+; -0.535 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.034     ; 1.488      ;
+; -0.529 ; half_sec_timer:Timer|Q[18] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.232     ; 1.284      ;
+; -0.529 ; half_sec_timer:Timer|Q[19] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.232     ; 1.284      ;
+; -0.528 ; half_sec_timer:Timer|Q[18] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.232     ; 1.283      ;
+; -0.528 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.669      ;
+; -0.528 ; half_sec_timer:Timer|Q[19] ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.232     ; 1.283      ;
+; -0.517 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[6]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.034     ; 1.470      ;
+; -0.515 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.656      ;
+; -0.515 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.656      ;
+; -0.515 ; half_sec_timer:Timer|Q[6]  ; half_sec_timer:Timer|Q[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.153      ; 1.655      ;
+; -0.514 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.655      ;
+; -0.514 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.655      ;
+; -0.514 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.655      ;
+; -0.514 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.655      ;
+; -0.513 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.654      ;
+; -0.513 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.654      ;
+; -0.512 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.653      ;
+; -0.508 ; half_sec_timer:Timer|Q[23] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.232     ; 1.263      ;
+; -0.507 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.154      ; 1.648      ;
++--------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'CLOCK_50'                                                                                                 ;
++-------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                  ; To Node                    ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+; 0.188 ; y_Q.Morse_1                ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.307      ;
+; 0.188 ; y_Q.Morse_2                ; y_Q.Morse_2                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.307      ;
+; 0.188 ; y_Q.Morse_3                ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.307      ;
+; 0.188 ; y_Q.Init                   ; y_Q.Init                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.307      ;
+; 0.196 ; y_Q.Morse_1                ; y_Q.Morse_2                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.315      ;
+; 0.207 ; y_Q.Morse_3                ; y_Q.Interval               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.326      ;
+; 0.220 ; y_Q.Interval               ; y_Q.Init                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.339      ;
+; 0.279 ; shiftrne:CodeReg|Q[1]      ; shiftrne:CodeReg|Q[0]      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.398      ;
+; 0.298 ; half_sec_timer:Timer|Q[23] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.043      ; 0.425      ;
+; 0.299 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.418      ;
+; 0.299 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.418      ;
+; 0.300 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[2]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.419      ;
+; 0.300 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.419      ;
+; 0.303 ; shiftrne:LenReg|Q[3]       ; shiftrne:LenReg|Q[2]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.042      ; 0.429      ;
+; 0.305 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[1]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.424      ;
+; 0.305 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.424      ;
+; 0.305 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[15] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.424      ;
+; 0.306 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[3]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.425      ;
+; 0.306 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[17] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.425      ;
+; 0.307 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.426      ;
+; 0.307 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.426      ;
+; 0.321 ; shiftrne:LenReg|Q[2]       ; shiftrne:LenReg|Q[1]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.042      ; 0.447      ;
+; 0.371 ; y_Q.Interval               ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.490      ;
+; 0.383 ; shiftrne:LenReg|Q[1]       ; shiftrne:LenReg|Q[0]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.141     ; 0.326      ;
+; 0.383 ; shiftrne:CodeReg|Q[2]      ; shiftrne:CodeReg|Q[1]      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.141     ; 0.326      ;
+; 0.385 ; shiftrne:LenReg|Q[0]       ; y_Q.Init                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.504      ;
+; 0.411 ; y_Q.Morse_2                ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.530      ;
+; 0.441 ; shiftrne:LenReg|Q[0]       ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.560      ;
+; 0.448 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.567      ;
+; 0.451 ; half_sec_timer:Timer|Q[22] ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.043      ; 0.578      ;
+; 0.453 ; half_sec_timer:Timer|Q[20] ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.043      ; 0.580      ;
+; 0.454 ; half_sec_timer:Timer|Q[13] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.043      ; 0.581      ;
+; 0.454 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.231      ; 0.769      ;
+; 0.454 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[2]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.573      ;
+; 0.454 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.573      ;
+; 0.455 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.574      ;
+; 0.457 ; half_sec_timer:Timer|Q[22] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.043      ; 0.584      ;
+; 0.458 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.577      ;
+; 0.458 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[3]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.577      ;
+; 0.459 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[1]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.578      ;
+; 0.461 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.580      ;
+; 0.462 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[2]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.581      ;
+; 0.465 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.584      ;
+; 0.468 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.587      ;
+; 0.473 ; y_Q.Interval               ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.592      ;
+; 0.477 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.231      ; 0.792      ;
+; 0.479 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.232      ; 0.795      ;
+; 0.484 ; shiftrne:CodeReg|Q[0]      ; y_Q.Morse_1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.603      ;
+; 0.488 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.232      ; 0.804      ;
+; 0.499 ; y_Q.Init                   ; y_Q.Interval               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.618      ;
+; 0.500 ; half_sec_timer:Timer|Q[24] ; half_sec_timer:Timer|Q[24] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.043      ; 0.627      ;
+; 0.502 ; half_sec_timer:Timer|Q[24] ; half_sec_timer:Timer|Q[16] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.043      ; 0.629      ;
+; 0.504 ; half_sec_timer:Timer|Q[24] ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.043      ; 0.631      ;
+; 0.504 ; half_sec_timer:Timer|Q[24] ; half_sec_timer:Timer|Q[19] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.043      ; 0.631      ;
+; 0.504 ; half_sec_timer:Timer|Q[12] ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.231      ; 0.819      ;
+; 0.511 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.630      ;
+; 0.511 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.630      ;
+; 0.514 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.633      ;
+; 0.514 ; half_sec_timer:Timer|Q[7]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.633      ;
+; 0.517 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[17] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.636      ;
+; 0.517 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[3]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.636      ;
+; 0.518 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.637      ;
+; 0.519 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.231      ; 0.834      ;
+; 0.520 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.639      ;
+; 0.524 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[11] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.643      ;
+; 0.524 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.643      ;
+; 0.524 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.643      ;
+; 0.525 ; half_sec_timer:Timer|Q[20] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.043      ; 0.652      ;
+; 0.525 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[3]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.644      ;
+; 0.527 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.646      ;
+; 0.528 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[4]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.647      ;
+; 0.532 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[0]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.651      ;
+; 0.540 ; half_sec_timer:Timer|Q[9]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.232      ; 0.856      ;
+; 0.542 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[20] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.231      ; 0.857      ;
+; 0.543 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[22] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.231      ; 0.858      ;
+; 0.546 ; shiftrne:LenReg|Q[0]       ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.665      ;
+; 0.550 ; shiftrne:LenReg|Q[0]       ; y_Q.Interval               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.669      ;
+; 0.550 ; half_sec_timer:Timer|Q[15] ; half_sec_timer:Timer|Q[16] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.231      ; 0.865      ;
+; 0.552 ; half_sec_timer:Timer|Q[17] ; half_sec_timer:Timer|Q[18] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.231      ; 0.867      ;
+; 0.554 ; half_sec_timer:Timer|Q[8]  ; half_sec_timer:Timer|Q[13] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.232      ; 0.870      ;
+; 0.557 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[14] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.232      ; 0.873      ;
+; 0.566 ; half_sec_timer:Timer|Q[10] ; half_sec_timer:Timer|Q[14] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.232      ; 0.882      ;
+; 0.569 ; y_Q.Init                   ; shiftrne:LenReg|Q[3]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.218      ; 0.871      ;
+; 0.569 ; y_Q.Init                   ; shiftrne:LenReg|Q[2]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.218      ; 0.871      ;
+; 0.569 ; y_Q.Init                   ; shiftrne:LenReg|Q[1]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.218      ; 0.871      ;
+; 0.569 ; y_Q.Init                   ; shiftrne:CodeReg|Q[2]      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.218      ; 0.871      ;
+; 0.577 ; half_sec_timer:Timer|Q[21] ; half_sec_timer:Timer|Q[23] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.043      ; 0.704      ;
+; 0.577 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.696      ;
+; 0.580 ; half_sec_timer:Timer|Q[5]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.699      ;
+; 0.581 ; shiftrne:CodeReg|Q[0]      ; y_Q.Morse_3                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.700      ;
+; 0.582 ; y_Q.Interval               ; y_Q.Interval               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.701      ;
+; 0.582 ; half_sec_timer:Timer|Q[12] ; half_sec_timer:Timer|Q[14] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.231      ; 0.897      ;
+; 0.583 ; half_sec_timer:Timer|Q[1]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.702      ;
+; 0.584 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.703      ;
+; 0.587 ; half_sec_timer:Timer|Q[11] ; half_sec_timer:Timer|Q[15] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.707      ;
+; 0.587 ; half_sec_timer:Timer|Q[3]  ; half_sec_timer:Timer|Q[8]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.706      ;
+; 0.590 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[9]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.709      ;
+; 0.590 ; half_sec_timer:Timer|Q[2]  ; half_sec_timer:Timer|Q[7]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.709      ;
+; 0.591 ; half_sec_timer:Timer|Q[0]  ; half_sec_timer:Timer|Q[5]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.710      ;
+; 0.593 ; half_sec_timer:Timer|Q[4]  ; half_sec_timer:Timer|Q[10] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.712      ;
++-------+----------------------------+----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width: 'CLOCK_50'                                                          ;
++--------+--------------+----------------+-----------------+----------+------------+----------------------------+
+; Slack  ; Actual Width ; Required Width ; Type            ; Clock    ; Clock Edge ; Target                     ;
++--------+--------------+----------------+-----------------+----------+------------+----------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate       ; CLOCK_50 ; Rise       ; CLOCK_50                   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Done  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[0]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[16] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[17] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[18] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[19] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[20] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[21] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[22] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[23] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[24] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[0]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[1]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[2]      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[0]       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[1]       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[2]       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[3]       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Init                   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Interval               ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Morse_1                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Morse_2                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; CLOCK_50 ; Rise       ; y_Q.Morse_3                ;
+; -0.262 ; -0.078       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[13] ;
+; -0.262 ; -0.078       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[14] ;
+; -0.262 ; -0.078       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[16] ;
+; -0.262 ; -0.078       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[18] ;
+; -0.262 ; -0.078       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[19] ;
+; -0.262 ; -0.078       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[20] ;
+; -0.262 ; -0.078       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[21] ;
+; -0.262 ; -0.078       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[22] ;
+; -0.262 ; -0.078       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[23] ;
+; -0.262 ; -0.078       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[24] ;
+; -0.249 ; -0.065       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[2]      ;
+; -0.249 ; -0.065       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[1]       ;
+; -0.249 ; -0.065       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[2]       ;
+; -0.249 ; -0.065       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[3]       ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Done  ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[0]  ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[10] ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[11] ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[12] ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[15] ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[17] ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[1]  ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[2]  ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[3]  ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[4]  ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[5]  ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[6]  ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[7]  ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[8]  ;
+; -0.233 ; -0.049       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; half_sec_timer:Timer|Q[9]  ;
+; -0.232 ; -0.048       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[0]      ;
+; -0.232 ; -0.048       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:CodeReg|Q[1]      ;
+; -0.232 ; -0.048       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; shiftrne:LenReg|Q[0]       ;
+; -0.232 ; -0.048       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Init                   ;
+; -0.232 ; -0.048       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Interval               ;
+; -0.232 ; -0.048       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Morse_1                ;
+; -0.232 ; -0.048       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Morse_2                ;
+; -0.232 ; -0.048       ; 0.184          ; Low Pulse Width ; CLOCK_50 ; Rise       ; y_Q.Morse_3                ;
+; -0.082 ; -0.082       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[13]|clk            ;
+; -0.082 ; -0.082       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[14]|clk            ;
+; -0.082 ; -0.082       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[16]|clk            ;
+; -0.082 ; -0.082       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[18]|clk            ;
+; -0.082 ; -0.082       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[19]|clk            ;
+; -0.082 ; -0.082       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[20]|clk            ;
+; -0.082 ; -0.082       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[21]|clk            ;
+; -0.082 ; -0.082       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[22]|clk            ;
+; -0.082 ; -0.082       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[23]|clk            ;
+; -0.082 ; -0.082       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[24]|clk            ;
+; -0.069 ; -0.069       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; CodeReg|Q[2]|clk           ;
+; -0.069 ; -0.069       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; LenReg|Q[1]|clk            ;
+; -0.069 ; -0.069       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; LenReg|Q[2]|clk            ;
+; -0.069 ; -0.069       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; LenReg|Q[3]|clk            ;
+; -0.059 ; -0.059       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~input|o           ;
+; -0.054 ; -0.054       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[0]|clk             ;
+; -0.054 ; -0.054       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[10]|clk            ;
+; -0.054 ; -0.054       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[11]|clk            ;
+; -0.054 ; -0.054       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[1]|clk             ;
+; -0.054 ; -0.054       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[2]|clk             ;
+; -0.054 ; -0.054       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[3]|clk             ;
+; -0.054 ; -0.054       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[4]|clk             ;
+; -0.054 ; -0.054       ; 0.000          ; Low Pulse Width ; CLOCK_50 ; Rise       ; Timer|Q[5]|clk             ;
++--------+--------------+----------------+-----------------+----------+------------+----------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; KEY[*]    ; CLOCK_50   ; 1.087 ; 1.763 ; Rise       ; CLOCK_50        ;
+;  KEY[1]   ; CLOCK_50   ; 1.087 ; 1.763 ; Rise       ; CLOCK_50        ;
+; SW[*]     ; CLOCK_50   ; 1.167 ; 1.883 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; 1.061 ; 1.764 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; 1.023 ; 1.768 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; 1.167 ; 1.883 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; KEY[*]    ; CLOCK_50   ; -0.349 ; -1.087 ; Rise       ; CLOCK_50        ;
+;  KEY[1]   ; CLOCK_50   ; -0.349 ; -1.087 ; Rise       ; CLOCK_50        ;
+; SW[*]     ; CLOCK_50   ; -0.378 ; -1.121 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; -0.420 ; -1.147 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; -0.378 ; -1.121 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; -0.488 ; -1.233 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 4.957 ; 4.768 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 3.338 ; 3.327 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 3.347 ; 3.343 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 4.957 ; 4.768 ; Rise       ; CLOCK_50        ;
+;  LEDG[4]  ; CLOCK_50   ; 3.319 ; 3.299 ; Rise       ; CLOCK_50        ;
+;  LEDG[5]  ; CLOCK_50   ; 3.428 ; 3.396 ; Rise       ; CLOCK_50        ;
+;  LEDG[6]  ; CLOCK_50   ; 3.519 ; 3.500 ; Rise       ; CLOCK_50        ;
+;  LEDG[7]  ; CLOCK_50   ; 3.551 ; 3.535 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 3.708 ; 3.811 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 3.255 ; 3.234 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 3.273 ; 3.260 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 3.282 ; 3.275 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 4.886 ; 4.694 ; Rise       ; CLOCK_50        ;
+;  LEDG[4]  ; CLOCK_50   ; 3.255 ; 3.234 ; Rise       ; CLOCK_50        ;
+;  LEDG[5]  ; CLOCK_50   ; 3.360 ; 3.326 ; Rise       ; CLOCK_50        ;
+;  LEDG[6]  ; CLOCK_50   ; 3.448 ; 3.427 ; Rise       ; CLOCK_50        ;
+;  LEDG[7]  ; CLOCK_50   ; 3.479 ; 3.461 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 3.588 ; 3.586 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Fast 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++-------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                           ;
++------------------+---------+-------+----------+---------+---------------------+
+; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+---------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -2.279  ; 0.188 ; N/A      ; N/A     ; -3.000              ;
+;  CLOCK_50        ; -2.279  ; 0.188 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -59.467 ; 0.0   ; 0.0      ; 0.0     ; -52.728             ;
+;  CLOCK_50        ; -59.467 ; 0.000 ; N/A      ; N/A     ; -52.728             ;
++------------------+---------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; KEY[*]    ; CLOCK_50   ; 1.997 ; 2.421 ; Rise       ; CLOCK_50        ;
+;  KEY[1]   ; CLOCK_50   ; 1.997 ; 2.421 ; Rise       ; CLOCK_50        ;
+; SW[*]     ; CLOCK_50   ; 2.137 ; 2.580 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; 1.935 ; 2.400 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; 1.856 ; 2.377 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; 2.137 ; 2.580 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; KEY[*]    ; CLOCK_50   ; -0.349 ; -0.947 ; Rise       ; CLOCK_50        ;
+;  KEY[1]   ; CLOCK_50   ; -0.349 ; -0.947 ; Rise       ; CLOCK_50        ;
+; SW[*]     ; CLOCK_50   ; -0.378 ; -0.971 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; -0.420 ; -1.042 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; -0.378 ; -0.971 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; -0.488 ; -1.151 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 7.746 ; 7.515 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 5.550 ; 5.487 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 5.563 ; 5.517 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 7.746 ; 7.515 ; Rise       ; CLOCK_50        ;
+;  LEDG[4]  ; CLOCK_50   ; 5.535 ; 5.436 ; Rise       ; CLOCK_50        ;
+;  LEDG[5]  ; CLOCK_50   ; 5.767 ; 5.659 ; Rise       ; CLOCK_50        ;
+;  LEDG[6]  ; CLOCK_50   ; 5.879 ; 5.805 ; Rise       ; CLOCK_50        ;
+;  LEDG[7]  ; CLOCK_50   ; 5.918 ; 5.859 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 6.181 ; 6.364 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 3.255 ; 3.234 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 3.273 ; 3.260 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 3.282 ; 3.275 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 4.886 ; 4.694 ; Rise       ; CLOCK_50        ;
+;  LEDG[4]  ; CLOCK_50   ; 3.255 ; 3.234 ; Rise       ; CLOCK_50        ;
+;  LEDG[5]  ; CLOCK_50   ; 3.360 ; 3.326 ; Rise       ; CLOCK_50        ;
+;  LEDG[6]  ; CLOCK_50   ; 3.448 ; 3.427 ; Rise       ; CLOCK_50        ;
+;  LEDG[7]  ; CLOCK_50   ; 3.479 ; 3.461 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 3.588 ; 3.586 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; LEDG[0]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[1]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[2]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[3]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[4]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[5]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[6]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[7]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[8]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[9]       ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 3.3-V LVTTL  ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; KEY[2]                  ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; KEY[3]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[3]                   ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; SW[4]                   ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; SW[5]                   ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; SW[6]                   ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; SW[7]                   ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; SW[8]                   ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; SW[9]                   ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; CLOCK_50                ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; SW[1]                   ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; SW[2]                   ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; SW[0]                   ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; KEY[1]                  ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; KEY[0]                  ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
+; ~ALTERA_DATA0~          ; 3.3-V LVTTL  ; 2640 ps         ; 2640 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; LEDG[0]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.06e-06 V                   ; 3.12 V              ; -0.0308 V           ; 0.224 V                              ; 0.218 V                              ; 1.32e-09 s                  ; 1.07e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 2.06e-06 V                  ; 3.12 V             ; -0.0308 V          ; 0.224 V                             ; 0.218 V                             ; 1.32e-09 s                 ; 1.07e-09 s                 ; No                        ; Yes                       ;
+; LEDG[1]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.06e-06 V                   ; 3.12 V              ; -0.0308 V           ; 0.224 V                              ; 0.218 V                              ; 1.32e-09 s                  ; 1.07e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 2.06e-06 V                  ; 3.12 V             ; -0.0308 V          ; 0.224 V                             ; 0.218 V                             ; 1.32e-09 s                 ; 1.07e-09 s                 ; No                        ; Yes                       ;
+; LEDG[2]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.06e-06 V                   ; 3.08 V              ; -0.00513 V          ; 0.274 V                              ; 0.267 V                              ; 5.67e-09 s                  ; 4.62e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 2.06e-06 V                  ; 3.08 V             ; -0.00513 V         ; 0.274 V                             ; 0.267 V                             ; 5.67e-09 s                 ; 4.62e-09 s                 ; No                        ; Yes                       ;
+; LEDG[3]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.06e-06 V                   ; 3.12 V              ; -0.0308 V           ; 0.224 V                              ; 0.218 V                              ; 1.32e-09 s                  ; 1.07e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 2.06e-06 V                  ; 3.12 V             ; -0.0308 V          ; 0.224 V                             ; 0.218 V                             ; 1.32e-09 s                 ; 1.07e-09 s                 ; No                        ; Yes                       ;
+; LEDG[4]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.06e-06 V                   ; 3.12 V              ; -0.0308 V           ; 0.224 V                              ; 0.218 V                              ; 1.32e-09 s                  ; 1.07e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 2.06e-06 V                  ; 3.12 V             ; -0.0308 V          ; 0.224 V                             ; 0.218 V                             ; 1.32e-09 s                 ; 1.07e-09 s                 ; No                        ; Yes                       ;
+; LEDG[5]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.06e-06 V                   ; 3.12 V              ; -0.0308 V           ; 0.224 V                              ; 0.218 V                              ; 1.32e-09 s                  ; 1.07e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 2.06e-06 V                  ; 3.12 V             ; -0.0308 V          ; 0.224 V                             ; 0.218 V                             ; 1.32e-09 s                 ; 1.07e-09 s                 ; No                        ; Yes                       ;
+; LEDG[6]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.06e-06 V                   ; 3.12 V              ; -0.0308 V           ; 0.224 V                              ; 0.218 V                              ; 1.32e-09 s                  ; 1.07e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 2.06e-06 V                  ; 3.12 V             ; -0.0308 V          ; 0.224 V                             ; 0.218 V                             ; 1.32e-09 s                 ; 1.07e-09 s                 ; No                        ; Yes                       ;
+; LEDG[7]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.06e-06 V                   ; 3.12 V              ; -0.0308 V           ; 0.224 V                              ; 0.218 V                              ; 1.32e-09 s                  ; 1.07e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 2.06e-06 V                  ; 3.12 V             ; -0.0308 V          ; 0.224 V                             ; 0.218 V                             ; 1.32e-09 s                 ; 1.07e-09 s                 ; No                        ; Yes                       ;
+; LEDG[8]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.06e-06 V                   ; 3.12 V              ; -0.0308 V           ; 0.224 V                              ; 0.218 V                              ; 1.32e-09 s                  ; 1.07e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 2.06e-06 V                  ; 3.12 V             ; -0.0308 V          ; 0.224 V                             ; 0.218 V                             ; 1.32e-09 s                 ; 1.07e-09 s                 ; No                        ; Yes                       ;
+; LEDG[9]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.06e-06 V                   ; 3.12 V              ; -0.0308 V           ; 0.224 V                              ; 0.218 V                              ; 1.32e-09 s                  ; 1.07e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 2.06e-06 V                  ; 3.12 V             ; -0.0308 V          ; 0.224 V                             ; 0.218 V                             ; 1.32e-09 s                 ; 1.07e-09 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 1.02e-06 V                   ; 3.14 V              ; -0.0402 V           ; 0.146 V                              ; 0.156 V                              ; 4.62e-10 s                  ; 4.36e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 1.02e-06 V                  ; 3.14 V             ; -0.0402 V          ; 0.146 V                             ; 0.156 V                             ; 4.62e-10 s                 ; 4.36e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.06e-06 V                   ; 3.12 V              ; -0.0308 V           ; 0.224 V                              ; 0.218 V                              ; 1.32e-09 s                  ; 1.07e-09 s                  ; No                         ; Yes                        ; 3.08 V                      ; 2.06e-06 V                  ; 3.12 V             ; -0.0308 V          ; 0.224 V                             ; 0.218 V                             ; 1.32e-09 s                 ; 1.07e-09 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; LEDG[0]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.29e-07 V                   ; 3.55 V              ; -0.053 V            ; 0.341 V                              ; 0.35 V                               ; 9.04e-10 s                  ; 7.28e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 1.29e-07 V                  ; 3.55 V             ; -0.053 V           ; 0.341 V                             ; 0.35 V                              ; 9.04e-10 s                 ; 7.28e-10 s                 ; No                        ; No                        ;
+; LEDG[1]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.29e-07 V                   ; 3.55 V              ; -0.053 V            ; 0.341 V                              ; 0.35 V                               ; 9.04e-10 s                  ; 7.28e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 1.29e-07 V                  ; 3.55 V             ; -0.053 V           ; 0.341 V                             ; 0.35 V                              ; 9.04e-10 s                 ; 7.28e-10 s                 ; No                        ; No                        ;
+; LEDG[2]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.29e-07 V                   ; 3.48 V              ; -0.0136 V           ; 0.352 V                              ; 0.346 V                              ; 4.12e-09 s                  ; 3.34e-09 s                  ; No                         ; Yes                        ; 3.46 V                      ; 1.29e-07 V                  ; 3.48 V             ; -0.0136 V          ; 0.352 V                             ; 0.346 V                             ; 4.12e-09 s                 ; 3.34e-09 s                 ; No                        ; Yes                       ;
+; LEDG[3]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.29e-07 V                   ; 3.55 V              ; -0.053 V            ; 0.341 V                              ; 0.35 V                               ; 9.04e-10 s                  ; 7.28e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 1.29e-07 V                  ; 3.55 V             ; -0.053 V           ; 0.341 V                             ; 0.35 V                              ; 9.04e-10 s                 ; 7.28e-10 s                 ; No                        ; No                        ;
+; LEDG[4]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.29e-07 V                   ; 3.55 V              ; -0.053 V            ; 0.341 V                              ; 0.35 V                               ; 9.04e-10 s                  ; 7.28e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 1.29e-07 V                  ; 3.55 V             ; -0.053 V           ; 0.341 V                             ; 0.35 V                              ; 9.04e-10 s                 ; 7.28e-10 s                 ; No                        ; No                        ;
+; LEDG[5]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.29e-07 V                   ; 3.55 V              ; -0.053 V            ; 0.341 V                              ; 0.35 V                               ; 9.04e-10 s                  ; 7.28e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 1.29e-07 V                  ; 3.55 V             ; -0.053 V           ; 0.341 V                             ; 0.35 V                              ; 9.04e-10 s                 ; 7.28e-10 s                 ; No                        ; No                        ;
+; LEDG[6]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.29e-07 V                   ; 3.55 V              ; -0.053 V            ; 0.341 V                              ; 0.35 V                               ; 9.04e-10 s                  ; 7.28e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 1.29e-07 V                  ; 3.55 V             ; -0.053 V           ; 0.341 V                             ; 0.35 V                              ; 9.04e-10 s                 ; 7.28e-10 s                 ; No                        ; No                        ;
+; LEDG[7]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.29e-07 V                   ; 3.55 V              ; -0.053 V            ; 0.341 V                              ; 0.35 V                               ; 9.04e-10 s                  ; 7.28e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 1.29e-07 V                  ; 3.55 V             ; -0.053 V           ; 0.341 V                             ; 0.35 V                              ; 9.04e-10 s                 ; 7.28e-10 s                 ; No                        ; No                        ;
+; LEDG[8]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.29e-07 V                   ; 3.55 V              ; -0.053 V            ; 0.341 V                              ; 0.35 V                               ; 9.04e-10 s                  ; 7.28e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 1.29e-07 V                  ; 3.55 V             ; -0.053 V           ; 0.341 V                             ; 0.35 V                              ; 9.04e-10 s                 ; 7.28e-10 s                 ; No                        ; No                        ;
+; LEDG[9]       ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.29e-07 V                   ; 3.55 V              ; -0.053 V            ; 0.341 V                              ; 0.35 V                               ; 9.04e-10 s                  ; 7.28e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 1.29e-07 V                  ; 3.55 V             ; -0.053 V           ; 0.341 V                             ; 0.35 V                              ; 9.04e-10 s                 ; 7.28e-10 s                 ; No                        ; No                        ;
+; ~ALTERA_DCLK~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 6.52e-08 V                   ; 3.58 V              ; -0.064 V            ; 0.234 V                              ; 0.085 V                              ; 2.93e-10 s                  ; 3.07e-10 s                  ; Yes                        ; Yes                        ; 3.46 V                      ; 6.52e-08 V                  ; 3.58 V             ; -0.064 V           ; 0.234 V                             ; 0.085 V                             ; 2.93e-10 s                 ; 3.07e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 3.3-V LVTTL  ; 0 s                 ; 0 s                 ; 3.46 V                       ; 1.29e-07 V                   ; 3.55 V              ; -0.053 V            ; 0.341 V                              ; 0.35 V                               ; 9.04e-10 s                  ; 7.28e-10 s                  ; No                         ; No                         ; 3.46 V                      ; 1.29e-07 V                  ; 3.55 V             ; -0.053 V           ; 0.341 V                             ; 0.35 V                              ; 9.04e-10 s                 ; 7.28e-10 s                 ; No                        ; No                        ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLOCK_50   ; CLOCK_50 ; 723      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLOCK_50   ; CLOCK_50 ; 723      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 5     ; 5    ;
+; Unconstrained Input Port Paths  ; 31    ; 31   ;
+; Unconstrained Output Ports      ; 8     ; 8    ;
+; Unconstrained Output Port Paths ; 9     ; 9    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sun Nov 01 20:19:38 2020
+Info: Command: quartus_sta L7P4 -c L7P4
+Info: qsta_default_script.tcl version: #1
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'L7P4.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name CLOCK_50 CLOCK_50
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.279
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -2.279       -59.467 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.358
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.358         0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -3.000       -41.000 CLOCK_50 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -1.974
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.974       -49.439 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.313
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.313         0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -3.000       -41.000 CLOCK_50 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.929
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.929       -18.699 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.188
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.188         0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -3.000       -52.728 CLOCK_50 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 598 megabytes
+    Info: Processing ended: Sun Nov 01 20:19:41 2020
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+

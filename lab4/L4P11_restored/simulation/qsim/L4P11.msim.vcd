@@ -1,0 +1,509 @@
+$comment
+	File created using the following command:
+		vcd file L4P11.msim.vcd -direction
+$end
+$date
+	Fri Oct 09 18:07:01 2020
+$end
+$version
+	ModelSim Version 10.1d
+$end
+$timescale
+	1ps
+$end
+$scope module L4P11_vlg_vec_tst $end
+$var reg 1 ! Clearn $end
+$var reg 1 " Clk $end
+$var reg 1 # E $end
+$var wire 1 $ Q [7] $end
+$var wire 1 % Q [6] $end
+$var wire 1 & Q [5] $end
+$var wire 1 ' Q [4] $end
+$var wire 1 ( Q [3] $end
+$var wire 1 ) Q [2] $end
+$var wire 1 * Q [1] $end
+$var wire 1 + Q [0] $end
+$var wire 1 , sampler $end
+$scope module i1 $end
+$var wire 1 - gnd $end
+$var wire 1 . vcc $end
+$var wire 1 / unknown $end
+$var tri1 1 0 devclrn $end
+$var tri1 1 1 devpor $end
+$var tri1 1 2 devoe $end
+$var wire 1 3 Q[0]~output_o $end
+$var wire 1 4 Q[1]~output_o $end
+$var wire 1 5 Q[2]~output_o $end
+$var wire 1 6 Q[3]~output_o $end
+$var wire 1 7 Q[4]~output_o $end
+$var wire 1 8 Q[5]~output_o $end
+$var wire 1 9 Q[6]~output_o $end
+$var wire 1 : Q[7]~output_o $end
+$var wire 1 ; Clk~input_o $end
+$var wire 1 < Clk~inputclkctrl_outclk $end
+$var wire 1 = E~input_o $end
+$var wire 1 > t1|Q~0_combout $end
+$var wire 1 ? Clearn~input_o $end
+$var wire 1 @ Clearn~inputclkctrl_outclk $end
+$var wire 1 A t1|Q~q $end
+$var wire 1 B G1:1:t_2to8|Q~0_combout $end
+$var wire 1 C G1:1:t_2to8|Q~q $end
+$var wire 1 D G1:2:t_2to8|Q~0_combout $end
+$var wire 1 E G1:2:t_2to8|Q~q $end
+$var wire 1 F G1:3:t_2to8|Q~0_combout $end
+$var wire 1 G G1:3:t_2to8|Q~q $end
+$var wire 1 H G1:4:t_2to8|Q~0_combout $end
+$var wire 1 I G1:4:t_2to8|Q~q $end
+$var wire 1 J G1:5:t_2to8|Q~0_combout $end
+$var wire 1 K G1:5:t_2to8|Q~q $end
+$var wire 1 L G1:6:t_2to8|Q~0_combout $end
+$var wire 1 M G1:6:t_2to8|Q~q $end
+$var wire 1 N G1:7:t_2to8|Q~0_combout $end
+$var wire 1 O G1:7:t_2to8|Q~1_combout $end
+$var wire 1 P G1:7:t_2to8|Q~q $end
+$var wire 1 Q T [7] $end
+$var wire 1 R T [6] $end
+$var wire 1 S T [5] $end
+$var wire 1 T T [4] $end
+$var wire 1 U T [3] $end
+$var wire 1 V T [2] $end
+$var wire 1 W T [1] $end
+$var wire 1 X T [0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1!
+0"
+0#
+0+
+0*
+0)
+0(
+0'
+0&
+0%
+0$
+x,
+0-
+1.
+x/
+10
+11
+12
+03
+04
+05
+06
+07
+08
+09
+0:
+0;
+0<
+0=
+0>
+1?
+1@
+0A
+0B
+0C
+0D
+0E
+0F
+0G
+0H
+0I
+0J
+0K
+0L
+0M
+1N
+0O
+0P
+zX
+zW
+zV
+0U
+zT
+zS
+0R
+zQ
+$end
+#20000
+1"
+1;
+1<
+0,
+#40000
+1#
+0"
+1=
+0;
+0<
+1,
+1>
+#60000
+1"
+1;
+1<
+0,
+1A
+1B
+0>
+13
+1+
+#80000
+0"
+0;
+0<
+1,
+#100000
+1"
+1;
+1<
+0,
+1C
+0A
+1>
+14
+03
+1*
+0+
+#120000
+0!
+0"
+0?
+0;
+0@
+0<
+1,
+0C
+0B
+04
+0*
+#140000
+1"
+1;
+1<
+0,
+#160000
+0"
+0;
+0<
+1,
+#180000
+1"
+1;
+1<
+0,
+#200000
+1!
+0"
+1?
+0;
+1@
+0<
+1,
+#220000
+1"
+1;
+1<
+0,
+1A
+1B
+0>
+13
+1+
+#240000
+0"
+0;
+0<
+1,
+#260000
+1"
+1;
+1<
+0,
+1C
+0A
+1>
+14
+03
+1*
+0+
+#280000
+0"
+0;
+0<
+1,
+#300000
+1"
+1;
+1<
+0,
+1A
+1D
+0B
+0>
+13
+1+
+#320000
+0#
+0"
+0=
+0;
+0<
+1,
+0D
+1B
+1>
+#340000
+1"
+1;
+1<
+0,
+#360000
+0"
+0;
+0<
+1,
+#380000
+1"
+1;
+1<
+0,
+#400000
+0"
+0;
+0<
+1,
+#420000
+1"
+1;
+1<
+0,
+#440000
+0"
+0;
+0<
+1,
+#460000
+1"
+1;
+1<
+0,
+#480000
+1#
+0"
+1=
+0;
+0<
+1,
+1D
+0B
+0>
+#500000
+1"
+1;
+1<
+0,
+1E
+0C
+0A
+1>
+15
+04
+03
+1)
+0*
+0+
+#520000
+0"
+0;
+0<
+1,
+#540000
+1"
+1;
+1<
+0,
+1A
+1B
+0>
+13
+1+
+#560000
+0"
+0;
+0<
+1,
+#580000
+1"
+1;
+1<
+0,
+1C
+0A
+1>
+14
+03
+1*
+0+
+#600000
+0#
+0"
+0=
+0;
+0<
+1,
+0>
+#620000
+1"
+1;
+1<
+0,
+#640000
+0"
+0;
+0<
+1,
+#660000
+1"
+1;
+1<
+0,
+#680000
+0"
+0;
+0<
+1,
+#700000
+1"
+1;
+1<
+0,
+#720000
+1#
+0"
+1=
+0;
+0<
+1,
+1>
+#740000
+1"
+1;
+1<
+0,
+1A
+1U
+0D
+0B
+0>
+13
+1+
+1F
+#760000
+0"
+0;
+0<
+1,
+#780000
+1"
+1;
+1<
+0,
+1G
+0E
+0C
+0A
+1H
+0F
+0U
+1>
+16
+05
+04
+03
+1(
+0)
+0*
+0+
+0H
+1F
+#800000
+0"
+0;
+0<
+1,
+#820000
+1"
+1;
+1<
+0,
+1A
+1B
+0>
+13
+1+
+#840000
+0"
+0;
+0<
+1,
+#860000
+1"
+1;
+1<
+0,
+1C
+0A
+1>
+14
+03
+1*
+0+
+#880000
+0"
+0;
+0<
+1,
+#900000
+1"
+1;
+1<
+0,
+1A
+1D
+0B
+0>
+13
+1+
+#920000
+0#
+0"
+0=
+0;
+0<
+1,
+0D
+1B
+1>
+#940000
+1"
+1;
+1<
+0,
+#960000
+0"
+0;
+0<
+1,
+#980000
+1"
+1;
+1<
+0,
+#1000000

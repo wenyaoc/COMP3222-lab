@@ -1,0 +1,16 @@
+Quartus II Archive log --	D:/unsw/3222/lab/lab4/L4P13_restored/output_files/Wenyao Chen-5253448-L04P1.qarlog
+
+Archive:	D:/unsw/3222/lab/lab4/L4P13_restored/output_files/Wenyao Chen-5253448-L04P1.qar
+Date:		Wed Oct 14 13:43:19 2020
+Quartus II 64-Bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+
+	=========== Files Selected: ===========
+D:/unsw/3222/lab/lab4/L4P13_restored/L4P13.qpf
+D:/unsw/3222/lab/lab4/L4P13_restored/L4P13.qsf
+D:/unsw/3222/lab/lab4/L4P13_restored/L4P13.vhd
+D:/unsw/3222/lab/lab4/L4P13_restored/assignment_defaults.qdf
+D:/unsw/3222/lab/lab4/L4P13_restored/incremental_db/compiled_partitions/L4P13.db_info
+	======= Total: 5 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

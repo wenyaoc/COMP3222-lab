@@ -1,0 +1,23 @@
+Quartus II Archive log --	D:/unsw/3222/lab/lab3/Wenyao Chen-5253448-L03P2.qarlog
+
+Archive:	D:/unsw/3222/lab/lab3/Wenyao Chen-5253448-L03P2.qar
+Date:		Sun Oct 11 19:34:08 2020
+Quartus II 64-Bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+
+	=========== Files Selected: ===========
+D:/unsw/3222/lab/lab3/L3P2_restored/L3P2.qpf
+D:/unsw/3222/lab/lab3/L3P2_restored/L3P2.qsf
+D:/unsw/3222/lab/lab3/L3P2_restored/L3P2.vhd
+D:/unsw/3222/lab/lab3/L3P2_restored/L3P2.vwf
+D:/unsw/3222/lab/lab3/L3P2_restored/assignment_defaults.qdf
+D:/unsw/3222/lab/lab3/L3P2_restored/incremental_db/compiled_partitions/L3P2.db_info
+	======= Total: 6 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Sun Oct 11 22:23:48 2020
+Source archive file:	D:/unsw/3222/lab/lab3/Wenyao Chen-5253448-L03P2.qar
+Archive was extracted into	D:/unsw/3222/lab/lab3/Wenyao Chen-5253448-L03P2_restored/
+		 - successfully.

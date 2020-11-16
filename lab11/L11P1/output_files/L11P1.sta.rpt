@@ -1,0 +1,1500 @@
+TimeQuest Timing Analyzer report for L11P1
+Wed Nov 11 17:23:09 2020
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'CLOCK_50'
+ 13. Slow 1200mV 85C Model Hold: 'CLOCK_50'
+ 14. Slow 1200mV 85C Model Minimum Pulse Width: 'CLOCK_50'
+ 15. Setup Times
+ 16. Hold Times
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Slow 1200mV 85C Model Metastability Report
+ 20. Slow 1200mV 0C Model Fmax Summary
+ 21. Slow 1200mV 0C Model Setup Summary
+ 22. Slow 1200mV 0C Model Hold Summary
+ 23. Slow 1200mV 0C Model Recovery Summary
+ 24. Slow 1200mV 0C Model Removal Summary
+ 25. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 26. Slow 1200mV 0C Model Setup: 'CLOCK_50'
+ 27. Slow 1200mV 0C Model Hold: 'CLOCK_50'
+ 28. Slow 1200mV 0C Model Minimum Pulse Width: 'CLOCK_50'
+ 29. Setup Times
+ 30. Hold Times
+ 31. Clock to Output Times
+ 32. Minimum Clock to Output Times
+ 33. Slow 1200mV 0C Model Metastability Report
+ 34. Fast 1200mV 0C Model Setup Summary
+ 35. Fast 1200mV 0C Model Hold Summary
+ 36. Fast 1200mV 0C Model Recovery Summary
+ 37. Fast 1200mV 0C Model Removal Summary
+ 38. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 39. Fast 1200mV 0C Model Setup: 'CLOCK_50'
+ 40. Fast 1200mV 0C Model Hold: 'CLOCK_50'
+ 41. Fast 1200mV 0C Model Minimum Pulse Width: 'CLOCK_50'
+ 42. Setup Times
+ 43. Hold Times
+ 44. Clock to Output Times
+ 45. Minimum Clock to Output Times
+ 46. Fast 1200mV 0C Model Metastability Report
+ 47. Multicorner Timing Analysis Summary
+ 48. Setup Times
+ 49. Hold Times
+ 50. Clock to Output Times
+ 51. Minimum Clock to Output Times
+ 52. Board Trace Model Assignments
+ 53. Input Transition Times
+ 54. Slow Corner Signal Integrity Metrics
+ 55. Fast Corner Signal Integrity Metrics
+ 56. Setup Transfers
+ 57. Hold Transfers
+ 58. Report TCCS
+ 59. Report RSKM
+ 60. Unconstrained Paths
+ 61. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; L11P1                                                             ;
+; Device Family      ; Cyclone III                                                       ;
+; Device Name        ; EP3C16F484C6                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Enabled                                                           ;
++--------------------+-------------------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ; < 0.1%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                               ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; CLOCK_50   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLOCK_50 } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                        ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 525.76 MHz ; 250.0 MHz       ; CLOCK_50   ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++----------+--------+-----------------+
+; Clock    ; Slack  ; End Point TNS   ;
++----------+--------+-----------------+
+; CLOCK_50 ; -0.902 ; -10.746         ;
++----------+--------+-----------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++----------+-------+-----------------+
+; Clock    ; Slack ; End Point TNS   ;
++----------+-------+-----------------+
+; CLOCK_50 ; 0.358 ; 0.000           ;
++----------+-------+-----------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++----------+--------+-------------------------------+
+; Clock    ; Slack  ; End Point TNS                 ;
++----------+--------+-------------------------------+
+; CLOCK_50 ; -3.000 ; -18.000                       ;
++----------+--------+-------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'CLOCK_50'                                                                                                                  ;
++--------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                           ; To Node                             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.902 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.836      ;
+; -0.902 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.836      ;
+; -0.902 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.836      ;
+; -0.902 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.836      ;
+; -0.902 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.836      ;
+; -0.902 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.836      ;
+; -0.902 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.836      ;
+; -0.748 ; bitcount:Count|y.S2                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.681      ;
+; -0.748 ; bitcount:Count|y.S2                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.681      ;
+; -0.748 ; bitcount:Count|y.S2                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.681      ;
+; -0.748 ; bitcount:Count|y.S2                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.681      ;
+; -0.713 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.646      ;
+; -0.707 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.640      ;
+; -0.682 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.616      ;
+; -0.682 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.616      ;
+; -0.682 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.616      ;
+; -0.682 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.616      ;
+; -0.682 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.616      ;
+; -0.682 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.616      ;
+; -0.682 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.616      ;
+; -0.681 ; bitcount:Count|y.S1                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.614      ;
+; -0.681 ; bitcount:Count|y.S1                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.614      ;
+; -0.681 ; bitcount:Count|y.S1                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.614      ;
+; -0.681 ; bitcount:Count|y.S1                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.614      ;
+; -0.613 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.546      ;
+; -0.613 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.546      ;
+; -0.613 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.546      ;
+; -0.613 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.546      ;
+; -0.548 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.482      ;
+; -0.548 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.481      ;
+; -0.548 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.482      ;
+; -0.532 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.465      ;
+; -0.515 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.448      ;
+; -0.506 ; bitcount:Count|y.S1                 ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.439      ;
+; -0.447 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.380      ;
+; -0.385 ; bitcount:Count|B[1]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.318      ;
+; -0.381 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.315      ;
+; -0.380 ; bitcount:Count|B[0]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.313      ;
+; -0.371 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.305      ;
+; -0.365 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.298      ;
+; -0.354 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.288      ;
+; -0.345 ; bitcount:Count|B[2]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.278      ;
+; -0.280 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.214      ;
+; -0.265 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.198      ;
+; -0.225 ; bitcount:Count|y.S3                 ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.159      ;
+; -0.205 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.139      ;
+; -0.204 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.138      ;
+; -0.179 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.113      ;
+; -0.177 ; bitcount:Count|y.S2                 ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.111      ;
+; -0.130 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.064      ;
+; -0.104 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.038      ;
+; -0.089 ; bitcount:Count|B[3]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 1.022      ;
+; -0.067 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 1.001      ;
+; -0.030 ; bitcount:Count|B[1]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 0.963      ;
+; 0.097  ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 0.837      ;
+; 0.202  ; bitcount:Count|B[0]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 0.731      ;
+; 0.202  ; bitcount:Count|B[0]                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 0.731      ;
+; 0.213  ; bitcount:Count|y.S2                 ; bitcount:Count|y.S1                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 0.720      ;
+; 0.232  ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 0.702      ;
+; 0.233  ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 0.701      ;
+; 0.234  ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 0.700      ;
+; 0.238  ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 0.696      ;
+; 0.274  ; bitcount:Count|B[0]                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 0.659      ;
+; 0.274  ; bitcount:Count|B[1]                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 0.659      ;
+; 0.274  ; bitcount:Count|B[2]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 0.659      ;
+; 0.296  ; bitcount:Count|y.S2                 ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.062     ; 0.637      ;
+; 0.297  ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.061     ; 0.637      ;
++--------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'CLOCK_50'                                                                                                                  ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                           ; To Node                             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.358 ; bitcount:Count|y.S2                 ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.577      ;
+; 0.358 ; bitcount:Count|B[1]                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.577      ;
+; 0.358 ; bitcount:Count|B[2]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.577      ;
+; 0.359 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.577      ;
+; 0.361 ; bitcount:Count|B[0]                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.580      ;
+; 0.381 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.599      ;
+; 0.383 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.601      ;
+; 0.383 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.601      ;
+; 0.384 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.602      ;
+; 0.400 ; bitcount:Count|y.S2                 ; bitcount:Count|y.S1                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.619      ;
+; 0.406 ; bitcount:Count|B[0]                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.625      ;
+; 0.406 ; bitcount:Count|B[0]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.625      ;
+; 0.530 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.748      ;
+; 0.555 ; bitcount:Count|y.S1                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.774      ;
+; 0.560 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.778      ;
+; 0.578 ; bitcount:Count|B[1]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.797      ;
+; 0.633 ; bitcount:Count|y.S1                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.852      ;
+; 0.636 ; bitcount:Count|y.S1                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.855      ;
+; 0.636 ; bitcount:Count|y.S1                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.855      ;
+; 0.688 ; bitcount:Count|B[3]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.907      ;
+; 0.707 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.925      ;
+; 0.710 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 0.928      ;
+; 0.731 ; bitcount:Count|y.S2                 ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.950      ;
+; 0.749 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.968      ;
+; 0.755 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 0.974      ;
+; 0.793 ; bitcount:Count|y.S3                 ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.011      ;
+; 0.813 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.031      ;
+; 0.824 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.043      ;
+; 0.825 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.044      ;
+; 0.828 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.047      ;
+; 0.829 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.048      ;
+; 0.829 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.048      ;
+; 0.830 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.049      ;
+; 0.834 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.053      ;
+; 0.858 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.076      ;
+; 0.912 ; bitcount:Count|B[1]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.131      ;
+; 0.921 ; bitcount:Count|B[0]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.140      ;
+; 0.922 ; bitcount:Count|B[2]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.141      ;
+; 0.927 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.145      ;
+; 0.961 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.179      ;
+; 0.961 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.179      ;
+; 0.974 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.192      ;
+; 1.030 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.248      ;
+; 1.036 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.254      ;
+; 1.058 ; bitcount:Count|y.S1                 ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.277      ;
+; 1.109 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.327      ;
+; 1.122 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.340      ;
+; 1.139 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.357      ;
+; 1.191 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.409      ;
+; 1.191 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.409      ;
+; 1.300 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.518      ;
+; 1.300 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.518      ;
+; 1.315 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.533      ;
+; 1.315 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.533      ;
+; 1.315 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.533      ;
+; 1.315 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.061      ; 1.533      ;
+; 1.380 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.599      ;
+; 1.380 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.599      ;
+; 1.380 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.599      ;
+; 1.380 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.599      ;
+; 1.380 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.599      ;
+; 1.380 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.599      ;
+; 1.380 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.599      ;
+; 1.390 ; bitcount:Count|y.S2                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.609      ;
+; 1.390 ; bitcount:Count|y.S2                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.609      ;
+; 1.390 ; bitcount:Count|y.S2                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.609      ;
+; 1.390 ; bitcount:Count|y.S2                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.062      ; 1.609      ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width: 'CLOCK_50'                                                                   ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                              ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; CLOCK_50 ; Rise       ; CLOCK_50                            ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|B[0]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|B[1]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|B[2]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|B[3]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[0] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[1] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[2] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[3] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[4] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[5] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[6] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[7] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|y.S1                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|y.S2                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|y.S3                 ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|B[0]                 ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|B[1]                 ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|B[2]                 ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|B[3]                 ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[0] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[1] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[2] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[3] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[4] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[5] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[6] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[7] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|y.S1                 ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|y.S2                 ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|y.S3                 ;
+; 0.339  ; 0.339        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; CLOCK_50~input|o                    ;
+; 0.349  ; 0.349        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|B[0]|clk                      ;
+; 0.349  ; 0.349        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|B[1]|clk                      ;
+; 0.349  ; 0.349        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|B[2]|clk                      ;
+; 0.349  ; 0.349        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|B[3]|clk                      ;
+; 0.349  ; 0.349        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|y.S1|clk                      ;
+; 0.349  ; 0.349        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|y.S2|clk                      ;
+; 0.350  ; 0.350        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[0]|clk               ;
+; 0.350  ; 0.350        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[1]|clk               ;
+; 0.350  ; 0.350        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[2]|clk               ;
+; 0.350  ; 0.350        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[3]|clk               ;
+; 0.350  ; 0.350        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[4]|clk               ;
+; 0.350  ; 0.350        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[5]|clk               ;
+; 0.350  ; 0.350        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[6]|clk               ;
+; 0.350  ; 0.350        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[7]|clk               ;
+; 0.350  ; 0.350        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|y.S3|clk                      ;
+; 0.356  ; 0.356        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; CLOCK_50~inputclkctrl|inclk[0]      ;
+; 0.356  ; 0.356        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; CLOCK_50~inputclkctrl|outclk        ;
+; 0.410  ; 0.626        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[0] ;
+; 0.410  ; 0.626        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[1] ;
+; 0.410  ; 0.626        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[2] ;
+; 0.410  ; 0.626        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[3] ;
+; 0.410  ; 0.626        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[4] ;
+; 0.410  ; 0.626        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[5] ;
+; 0.410  ; 0.626        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[6] ;
+; 0.410  ; 0.626        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[7] ;
+; 0.410  ; 0.626        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|y.S3                 ;
+; 0.411  ; 0.627        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|B[0]                 ;
+; 0.411  ; 0.627        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|B[1]                 ;
+; 0.411  ; 0.627        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|B[2]                 ;
+; 0.411  ; 0.627        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|B[3]                 ;
+; 0.411  ; 0.627        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|y.S1                 ;
+; 0.411  ; 0.627        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|y.S2                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~input|i                    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; CLOCK_50~input|i                    ;
+; 0.643  ; 0.643        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~inputclkctrl|inclk[0]      ;
+; 0.643  ; 0.643        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~inputclkctrl|outclk        ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|B[0]|clk                      ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|B[1]|clk                      ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|B[2]|clk                      ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|B[3]|clk                      ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[0]|clk               ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[1]|clk               ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[2]|clk               ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[3]|clk               ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[4]|clk               ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[5]|clk               ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[6]|clk               ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[7]|clk               ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|y.S1|clk                      ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|y.S2|clk                      ;
+; 0.650  ; 0.650        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|y.S3|clk                      ;
+; 0.661  ; 0.661        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~input|o                    ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; CLOCK_50   ; 2.097 ; 2.552 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; 1.161 ; 1.588 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; 1.438 ; 1.902 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; 1.427 ; 1.851 ; Rise       ; CLOCK_50        ;
+;  SW[3]    ; CLOCK_50   ; 1.441 ; 1.860 ; Rise       ; CLOCK_50        ;
+;  SW[4]    ; CLOCK_50   ; 1.608 ; 2.060 ; Rise       ; CLOCK_50        ;
+;  SW[5]    ; CLOCK_50   ; 1.428 ; 1.855 ; Rise       ; CLOCK_50        ;
+;  SW[6]    ; CLOCK_50   ; 1.430 ; 1.848 ; Rise       ; CLOCK_50        ;
+;  SW[7]    ; CLOCK_50   ; 1.604 ; 2.083 ; Rise       ; CLOCK_50        ;
+;  SW[8]    ; CLOCK_50   ; 2.097 ; 2.552 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; CLOCK_50   ; -0.805 ; -1.211 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; -0.805 ; -1.211 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; -1.071 ; -1.513 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; -1.060 ; -1.464 ; Rise       ; CLOCK_50        ;
+;  SW[3]    ; CLOCK_50   ; -1.074 ; -1.473 ; Rise       ; CLOCK_50        ;
+;  SW[4]    ; CLOCK_50   ; -1.187 ; -1.600 ; Rise       ; CLOCK_50        ;
+;  SW[5]    ; CLOCK_50   ; -1.061 ; -1.468 ; Rise       ; CLOCK_50        ;
+;  SW[6]    ; CLOCK_50   ; -1.063 ; -1.461 ; Rise       ; CLOCK_50        ;
+;  SW[7]    ; CLOCK_50   ; -1.210 ; -1.639 ; Rise       ; CLOCK_50        ;
+;  SW[8]    ; CLOCK_50   ; -1.394 ; -1.791 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 6.887 ; 7.031 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 5.642 ; 5.684 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 5.667 ; 5.722 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 6.887 ; 7.031 ; Rise       ; CLOCK_50        ;
+;  LEDG[3]  ; CLOCK_50   ; 5.659 ; 5.699 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 5.569 ; 5.616 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 5.458 ; 5.503 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 5.526 ; 5.566 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 5.550 ; 5.602 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 6.769 ; 6.911 ; Rise       ; CLOCK_50        ;
+;  LEDG[3]  ; CLOCK_50   ; 5.543 ; 5.580 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 5.458 ; 5.503 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+----------------------------------------------
+; Slow 1200mV 85C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                         ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 585.48 MHz ; 250.0 MHz       ; CLOCK_50   ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++----------+--------+----------------+
+; Clock    ; Slack  ; End Point TNS  ;
++----------+--------+----------------+
+; CLOCK_50 ; -0.708 ; -8.210         ;
++----------+--------+----------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++----------+-------+----------------+
+; Clock    ; Slack ; End Point TNS  ;
++----------+-------+----------------+
+; CLOCK_50 ; 0.312 ; 0.000          ;
++----------+-------+----------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++----------+--------+------------------------------+
+; Clock    ; Slack  ; End Point TNS                ;
++----------+--------+------------------------------+
+; CLOCK_50 ; -3.000 ; -18.000                      ;
++----------+--------+------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'CLOCK_50'                                                                                                                   ;
++--------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                           ; To Node                             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.708 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.649      ;
+; -0.708 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.649      ;
+; -0.708 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.649      ;
+; -0.708 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.649      ;
+; -0.708 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.649      ;
+; -0.708 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.649      ;
+; -0.708 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.649      ;
+; -0.569 ; bitcount:Count|y.S2                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.510      ;
+; -0.569 ; bitcount:Count|y.S2                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.510      ;
+; -0.569 ; bitcount:Count|y.S2                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.510      ;
+; -0.569 ; bitcount:Count|y.S2                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.510      ;
+; -0.545 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.485      ;
+; -0.540 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.480      ;
+; -0.517 ; bitcount:Count|y.S1                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.458      ;
+; -0.517 ; bitcount:Count|y.S1                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.458      ;
+; -0.517 ; bitcount:Count|y.S1                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.458      ;
+; -0.517 ; bitcount:Count|y.S1                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.458      ;
+; -0.513 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.454      ;
+; -0.513 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.454      ;
+; -0.513 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.454      ;
+; -0.513 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.454      ;
+; -0.513 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.454      ;
+; -0.513 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.454      ;
+; -0.513 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.454      ;
+; -0.456 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.396      ;
+; -0.456 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.396      ;
+; -0.456 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.396      ;
+; -0.456 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.396      ;
+; -0.408 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.348      ;
+; -0.385 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.325      ;
+; -0.383 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.323      ;
+; -0.375 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.315      ;
+; -0.360 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.300      ;
+; -0.358 ; bitcount:Count|y.S1                 ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.299      ;
+; -0.312 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.252      ;
+; -0.248 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.188      ;
+; -0.235 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.175      ;
+; -0.232 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.172      ;
+; -0.231 ; bitcount:Count|B[1]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.172      ;
+; -0.224 ; bitcount:Count|B[0]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.165      ;
+; -0.217 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.157      ;
+; -0.195 ; bitcount:Count|B[2]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 1.136      ;
+; -0.152 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.092      ;
+; -0.141 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.081      ;
+; -0.095 ; bitcount:Count|y.S3                 ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.035      ;
+; -0.092 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.032      ;
+; -0.070 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 1.010      ;
+; -0.048 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 0.989      ;
+; -0.038 ; bitcount:Count|y.S2                 ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 0.979      ;
+; -0.014 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 0.955      ;
+; 0.002  ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 0.938      ;
+; 0.021  ; bitcount:Count|B[3]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 0.920      ;
+; 0.054  ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 0.886      ;
+; 0.081  ; bitcount:Count|B[1]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 0.860      ;
+; 0.198  ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 0.742      ;
+; 0.284  ; bitcount:Count|B[0]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 0.657      ;
+; 0.284  ; bitcount:Count|B[0]                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 0.657      ;
+; 0.302  ; bitcount:Count|y.S2                 ; bitcount:Count|y.S1                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 0.639      ;
+; 0.317  ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 0.623      ;
+; 0.318  ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 0.622      ;
+; 0.320  ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 0.620      ;
+; 0.323  ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 0.617      ;
+; 0.358  ; bitcount:Count|B[0]                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 0.583      ;
+; 0.358  ; bitcount:Count|B[1]                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 0.583      ;
+; 0.358  ; bitcount:Count|B[2]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 0.583      ;
+; 0.378  ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.055     ; 0.562      ;
+; 0.379  ; bitcount:Count|y.S2                 ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.054     ; 0.562      ;
++--------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'CLOCK_50'                                                                                                                   ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                           ; To Node                             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.312 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.511      ;
+; 0.313 ; bitcount:Count|y.S2                 ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; bitcount:Count|B[1]                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.511      ;
+; 0.313 ; bitcount:Count|B[2]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.511      ;
+; 0.321 ; bitcount:Count|B[0]                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.519      ;
+; 0.345 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.544      ;
+; 0.345 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.544      ;
+; 0.346 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.545      ;
+; 0.347 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.546      ;
+; 0.361 ; bitcount:Count|B[0]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.559      ;
+; 0.362 ; bitcount:Count|B[0]                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.560      ;
+; 0.364 ; bitcount:Count|y.S2                 ; bitcount:Count|y.S1                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.562      ;
+; 0.493 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.692      ;
+; 0.497 ; bitcount:Count|y.S1                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.695      ;
+; 0.501 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.700      ;
+; 0.520 ; bitcount:Count|B[1]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.718      ;
+; 0.565 ; bitcount:Count|y.S1                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.763      ;
+; 0.567 ; bitcount:Count|y.S1                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.765      ;
+; 0.568 ; bitcount:Count|y.S1                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.766      ;
+; 0.618 ; bitcount:Count|B[3]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.816      ;
+; 0.633 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.832      ;
+; 0.648 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.847      ;
+; 0.668 ; bitcount:Count|y.S2                 ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.867      ;
+; 0.684 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.883      ;
+; 0.695 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.894      ;
+; 0.719 ; bitcount:Count|y.S3                 ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.918      ;
+; 0.725 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.924      ;
+; 0.747 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.946      ;
+; 0.747 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.946      ;
+; 0.750 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.949      ;
+; 0.751 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.950      ;
+; 0.752 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.951      ;
+; 0.752 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.951      ;
+; 0.757 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 0.956      ;
+; 0.771 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 0.969      ;
+; 0.823 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.022      ;
+; 0.825 ; bitcount:Count|B[1]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.023      ;
+; 0.832 ; bitcount:Count|B[2]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.030      ;
+; 0.834 ; bitcount:Count|B[0]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.032      ;
+; 0.859 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.058      ;
+; 0.863 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.061      ;
+; 0.870 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.069      ;
+; 0.914 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.113      ;
+; 0.926 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.124      ;
+; 0.936 ; bitcount:Count|y.S1                 ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.134      ;
+; 0.997 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.195      ;
+; 1.008 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.206      ;
+; 1.017 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.215      ;
+; 1.059 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.258      ;
+; 1.060 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.259      ;
+; 1.162 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.360      ;
+; 1.163 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.361      ;
+; 1.199 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.397      ;
+; 1.199 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.397      ;
+; 1.199 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.397      ;
+; 1.199 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.397      ;
+; 1.254 ; bitcount:Count|y.S2                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.452      ;
+; 1.254 ; bitcount:Count|y.S2                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.452      ;
+; 1.254 ; bitcount:Count|y.S2                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.452      ;
+; 1.254 ; bitcount:Count|y.S2                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.054      ; 1.452      ;
+; 1.260 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.459      ;
+; 1.260 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.459      ;
+; 1.260 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.459      ;
+; 1.260 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.459      ;
+; 1.260 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.459      ;
+; 1.260 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.459      ;
+; 1.260 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.055      ; 1.459      ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width: 'CLOCK_50'                                                                    ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                              ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; CLOCK_50 ; Rise       ; CLOCK_50                            ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|B[0]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|B[1]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|B[2]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|B[3]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[0] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[1] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[2] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[3] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[4] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[5] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[6] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[7] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|y.S1                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|y.S2                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|y.S3                 ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[0] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[1] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[2] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[3] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[4] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[5] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[6] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[7] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|y.S3                 ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|B[0]                 ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|B[1]                 ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|B[2]                 ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|B[3]                 ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|y.S1                 ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|y.S2                 ;
+; 0.339  ; 0.339        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; CLOCK_50~input|o                    ;
+; 0.344  ; 0.344        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[0]|clk               ;
+; 0.344  ; 0.344        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[1]|clk               ;
+; 0.344  ; 0.344        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[2]|clk               ;
+; 0.344  ; 0.344        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[3]|clk               ;
+; 0.344  ; 0.344        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[4]|clk               ;
+; 0.344  ; 0.344        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[5]|clk               ;
+; 0.344  ; 0.344        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[6]|clk               ;
+; 0.344  ; 0.344        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[7]|clk               ;
+; 0.344  ; 0.344        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|y.S3|clk                      ;
+; 0.345  ; 0.345        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|B[0]|clk                      ;
+; 0.345  ; 0.345        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|B[1]|clk                      ;
+; 0.345  ; 0.345        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|B[2]|clk                      ;
+; 0.345  ; 0.345        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|B[3]|clk                      ;
+; 0.345  ; 0.345        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|y.S1|clk                      ;
+; 0.345  ; 0.345        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|y.S2|clk                      ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; CLOCK_50~inputclkctrl|inclk[0]      ;
+; 0.348  ; 0.348        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; CLOCK_50~inputclkctrl|outclk        ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|B[0]                 ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|B[1]                 ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|B[2]                 ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|B[3]                 ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[0] ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[1] ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[2] ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[3] ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[4] ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[5] ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[6] ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[7] ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|y.S1                 ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|y.S2                 ;
+; 0.415  ; 0.631        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|y.S3                 ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~input|i                    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; CLOCK_50~input|i                    ;
+; 0.651  ; 0.651        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~inputclkctrl|inclk[0]      ;
+; 0.651  ; 0.651        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~inputclkctrl|outclk        ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|B[0]|clk                      ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|B[1]|clk                      ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|B[2]|clk                      ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|B[3]|clk                      ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[0]|clk               ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[1]|clk               ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[2]|clk               ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[3]|clk               ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[4]|clk               ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[5]|clk               ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[6]|clk               ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[7]|clk               ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|y.S1|clk                      ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|y.S2|clk                      ;
+; 0.655  ; 0.655        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|y.S3|clk                      ;
+; 0.661  ; 0.661        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~input|o                    ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; CLOCK_50   ; 1.809 ; 2.155 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; 0.950 ; 1.310 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; 1.203 ; 1.587 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; 1.199 ; 1.545 ; Rise       ; CLOCK_50        ;
+;  SW[3]    ; CLOCK_50   ; 1.207 ; 1.553 ; Rise       ; CLOCK_50        ;
+;  SW[4]    ; CLOCK_50   ; 1.353 ; 1.723 ; Rise       ; CLOCK_50        ;
+;  SW[5]    ; CLOCK_50   ; 1.198 ; 1.563 ; Rise       ; CLOCK_50        ;
+;  SW[6]    ; CLOCK_50   ; 1.196 ; 1.542 ; Rise       ; CLOCK_50        ;
+;  SW[7]    ; CLOCK_50   ; 1.350 ; 1.744 ; Rise       ; CLOCK_50        ;
+;  SW[8]    ; CLOCK_50   ; 1.809 ; 2.155 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; CLOCK_50   ; -0.635 ; -0.980 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; -0.635 ; -0.980 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; -0.879 ; -1.245 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; -0.874 ; -1.205 ; Rise       ; CLOCK_50        ;
+;  SW[3]    ; CLOCK_50   ; -0.883 ; -1.214 ; Rise       ; CLOCK_50        ;
+;  SW[4]    ; CLOCK_50   ; -0.980 ; -1.318 ; Rise       ; CLOCK_50        ;
+;  SW[5]    ; CLOCK_50   ; -0.873 ; -1.222 ; Rise       ; CLOCK_50        ;
+;  SW[6]    ; CLOCK_50   ; -0.871 ; -1.203 ; Rise       ; CLOCK_50        ;
+;  SW[7]    ; CLOCK_50   ; -1.000 ; -1.357 ; Rise       ; CLOCK_50        ;
+;  SW[8]    ; CLOCK_50   ; -1.178 ; -1.488 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 6.615 ; 6.735 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 5.376 ; 5.368 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 5.397 ; 5.404 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 6.615 ; 6.735 ; Rise       ; CLOCK_50        ;
+;  LEDG[3]  ; CLOCK_50   ; 5.392 ; 5.386 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 5.300 ; 5.319 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 5.201 ; 5.219 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 5.273 ; 5.265 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 5.294 ; 5.299 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 6.511 ; 6.630 ; Rise       ; CLOCK_50        ;
+;  LEDG[3]  ; CLOCK_50   ; 5.289 ; 5.283 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 5.201 ; 5.219 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Slow 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++----------+--------+----------------+
+; Clock    ; Slack  ; End Point TNS  ;
++----------+--------+----------------+
+; CLOCK_50 ; -0.066 ; -0.462         ;
++----------+--------+----------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++----------+-------+----------------+
+; Clock    ; Slack ; End Point TNS  ;
++----------+-------+----------------+
+; CLOCK_50 ; 0.187 ; 0.000          ;
++----------+-------+----------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++----------+--------+------------------------------+
+; Clock    ; Slack  ; End Point TNS                ;
++----------+--------+------------------------------+
+; CLOCK_50 ; -3.000 ; -18.840                      ;
++----------+--------+------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'CLOCK_50'                                                                                                                   ;
++--------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                           ; To Node                             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.066 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.018      ;
+; -0.066 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.018      ;
+; -0.066 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.018      ;
+; -0.066 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.018      ;
+; -0.066 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.018      ;
+; -0.066 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.018      ;
+; -0.066 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 1.018      ;
+; 0.033  ; bitcount:Count|y.S2                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.918      ;
+; 0.033  ; bitcount:Count|y.S2                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.918      ;
+; 0.033  ; bitcount:Count|y.S2                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.918      ;
+; 0.033  ; bitcount:Count|y.S2                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.918      ;
+; 0.061  ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.890      ;
+; 0.064  ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.887      ;
+; 0.068  ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.884      ;
+; 0.068  ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.884      ;
+; 0.068  ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.884      ;
+; 0.068  ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.884      ;
+; 0.068  ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.884      ;
+; 0.068  ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.884      ;
+; 0.068  ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.884      ;
+; 0.069  ; bitcount:Count|y.S1                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.882      ;
+; 0.069  ; bitcount:Count|y.S1                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.882      ;
+; 0.069  ; bitcount:Count|y.S1                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.882      ;
+; 0.069  ; bitcount:Count|y.S1                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.882      ;
+; 0.109  ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.842      ;
+; 0.109  ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.842      ;
+; 0.109  ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.842      ;
+; 0.109  ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.842      ;
+; 0.143  ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.809      ;
+; 0.145  ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.807      ;
+; 0.157  ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.794      ;
+; 0.161  ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.790      ;
+; 0.164  ; bitcount:Count|y.S1                 ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.787      ;
+; 0.171  ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.780      ;
+; 0.215  ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.736      ;
+; 0.226  ; bitcount:Count|B[1]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.725      ;
+; 0.228  ; bitcount:Count|B[0]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.723      ;
+; 0.229  ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.723      ;
+; 0.243  ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.709      ;
+; 0.248  ; bitcount:Count|B[2]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.703      ;
+; 0.257  ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.695      ;
+; 0.259  ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.692      ;
+; 0.289  ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.663      ;
+; 0.312  ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.639      ;
+; 0.320  ; bitcount:Count|y.S3                 ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.632      ;
+; 0.323  ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.629      ;
+; 0.333  ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.619      ;
+; 0.335  ; bitcount:Count|y.S2                 ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.617      ;
+; 0.345  ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.607      ;
+; 0.361  ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.591      ;
+; 0.394  ; bitcount:Count|B[3]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.557      ;
+; 0.398  ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.554      ;
+; 0.405  ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.547      ;
+; 0.423  ; bitcount:Count|B[1]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.528      ;
+; 0.491  ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.461      ;
+; 0.554  ; bitcount:Count|B[0]                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.397      ;
+; 0.554  ; bitcount:Count|B[0]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.397      ;
+; 0.560  ; bitcount:Count|y.S2                 ; bitcount:Count|y.S1                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.391      ;
+; 0.570  ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.382      ;
+; 0.570  ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.382      ;
+; 0.573  ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.379      ;
+; 0.576  ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.376      ;
+; 0.592  ; bitcount:Count|B[0]                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.359      ;
+; 0.592  ; bitcount:Count|B[1]                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.359      ;
+; 0.592  ; bitcount:Count|B[2]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.359      ;
+; 0.601  ; bitcount:Count|y.S2                 ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.036     ; 0.350      ;
+; 0.602  ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 0.350      ;
++--------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'CLOCK_50'                                                                                                                   ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                           ; To Node                             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.187 ; bitcount:Count|y.S2                 ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; bitcount:Count|B[1]                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; bitcount:Count|B[2]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.307      ;
+; 0.188 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.307      ;
+; 0.194 ; bitcount:Count|B[0]                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.314      ;
+; 0.199 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.318      ;
+; 0.199 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.318      ;
+; 0.200 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.319      ;
+; 0.200 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.319      ;
+; 0.210 ; bitcount:Count|y.S2                 ; bitcount:Count|y.S1                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.330      ;
+; 0.214 ; bitcount:Count|B[0]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.334      ;
+; 0.215 ; bitcount:Count|B[0]                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.335      ;
+; 0.273 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.392      ;
+; 0.299 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.418      ;
+; 0.299 ; bitcount:Count|y.S1                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.419      ;
+; 0.309 ; bitcount:Count|B[1]                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.429      ;
+; 0.342 ; bitcount:Count|y.S1                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.462      ;
+; 0.346 ; bitcount:Count|y.S1                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.466      ;
+; 0.346 ; bitcount:Count|y.S1                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.466      ;
+; 0.357 ; bitcount:Count|B[3]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.477      ;
+; 0.372 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.491      ;
+; 0.386 ; bitcount:Count|y.S2                 ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.506      ;
+; 0.387 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.506      ;
+; 0.387 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.507      ;
+; 0.397 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.517      ;
+; 0.421 ; bitcount:Count|y.S3                 ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.540      ;
+; 0.439 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.559      ;
+; 0.442 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.562      ;
+; 0.442 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.562      ;
+; 0.443 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.562      ;
+; 0.444 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.564      ;
+; 0.444 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.564      ;
+; 0.445 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.565      ;
+; 0.445 ; bitcount:Count|y.S1                 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.565      ;
+; 0.471 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.590      ;
+; 0.480 ; bitcount:Count|B[2]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.600      ;
+; 0.486 ; bitcount:Count|B[1]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.606      ;
+; 0.487 ; bitcount:Count|B[0]                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.607      ;
+; 0.506 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.625      ;
+; 0.518 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.637      ;
+; 0.526 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.645      ;
+; 0.527 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.646      ;
+; 0.558 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.677      ;
+; 0.576 ; bitcount:Count|shiftrne:ShiftA|Q[7] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.695      ;
+; 0.581 ; bitcount:Count|y.S1                 ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.701      ;
+; 0.602 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.721      ;
+; 0.610 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.729      ;
+; 0.632 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.751      ;
+; 0.650 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.769      ;
+; 0.651 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|y.S3                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.770      ;
+; 0.706 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.825      ;
+; 0.706 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.825      ;
+; 0.706 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.825      ;
+; 0.706 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.825      ;
+; 0.714 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.833      ;
+; 0.715 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; bitcount:Count|y.S2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.035      ; 0.834      ;
+; 0.738 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[6] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.858      ;
+; 0.738 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[5] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.858      ;
+; 0.738 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[4] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.858      ;
+; 0.738 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.858      ;
+; 0.738 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.858      ;
+; 0.738 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.858      ;
+; 0.738 ; bitcount:Count|y.S2                 ; bitcount:Count|shiftrne:ShiftA|Q[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.858      ;
+; 0.748 ; bitcount:Count|y.S2                 ; bitcount:Count|B[0]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.868      ;
+; 0.748 ; bitcount:Count|y.S2                 ; bitcount:Count|B[1]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.868      ;
+; 0.748 ; bitcount:Count|y.S2                 ; bitcount:Count|B[2]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.868      ;
+; 0.748 ; bitcount:Count|y.S2                 ; bitcount:Count|B[3]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.036      ; 0.868      ;
++-------+-------------------------------------+-------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width: 'CLOCK_50'                                                                    ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                              ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; CLOCK_50 ; Rise       ; CLOCK_50                            ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|B[0]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|B[1]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|B[2]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|B[3]                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[0] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[1] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[2] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[3] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[4] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[5] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[6] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[7] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|y.S1                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|y.S2                 ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period       ; CLOCK_50 ; Rise       ; bitcount:Count|y.S3                 ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|B[0]                 ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|B[1]                 ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|B[2]                 ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|B[3]                 ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[0] ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[1] ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[2] ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[3] ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[4] ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[5] ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[6] ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[7] ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|y.S1                 ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|y.S2                 ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; bitcount:Count|y.S3                 ;
+; 0.118  ; 0.118        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; CLOCK_50~input|o                    ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|B[0]|clk                      ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|B[1]|clk                      ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|B[2]|clk                      ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|B[3]|clk                      ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|y.S1|clk                      ;
+; 0.123  ; 0.123        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|y.S2|clk                      ;
+; 0.124  ; 0.124        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[0]|clk               ;
+; 0.124  ; 0.124        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[1]|clk               ;
+; 0.124  ; 0.124        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[2]|clk               ;
+; 0.124  ; 0.124        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[3]|clk               ;
+; 0.124  ; 0.124        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[4]|clk               ;
+; 0.124  ; 0.124        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[5]|clk               ;
+; 0.124  ; 0.124        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[6]|clk               ;
+; 0.124  ; 0.124        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[7]|clk               ;
+; 0.124  ; 0.124        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; Count|y.S3|clk                      ;
+; 0.132  ; 0.132        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; CLOCK_50~inputclkctrl|inclk[0]      ;
+; 0.132  ; 0.132        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; CLOCK_50~inputclkctrl|outclk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~input|i                    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; CLOCK_50~input|i                    ;
+; 0.654  ; 0.870        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[0] ;
+; 0.654  ; 0.870        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[1] ;
+; 0.654  ; 0.870        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[2] ;
+; 0.654  ; 0.870        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[3] ;
+; 0.654  ; 0.870        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[4] ;
+; 0.654  ; 0.870        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[5] ;
+; 0.654  ; 0.870        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[6] ;
+; 0.654  ; 0.870        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|shiftrne:ShiftA|Q[7] ;
+; 0.654  ; 0.870        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|y.S3                 ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|B[0]                 ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|B[1]                 ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|B[2]                 ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|B[3]                 ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|y.S1                 ;
+; 0.655  ; 0.871        ; 0.216          ; High Pulse Width ; CLOCK_50 ; Rise       ; bitcount:Count|y.S2                 ;
+; 0.867  ; 0.867        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~inputclkctrl|inclk[0]      ;
+; 0.867  ; 0.867        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~inputclkctrl|outclk        ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|B[0]|clk                      ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|B[1]|clk                      ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|B[2]|clk                      ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|B[3]|clk                      ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[0]|clk               ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[1]|clk               ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[2]|clk               ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[3]|clk               ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[4]|clk               ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[5]|clk               ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[6]|clk               ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|ShiftA|Q[7]|clk               ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|y.S1|clk                      ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|y.S2|clk                      ;
+; 0.876  ; 0.876        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; Count|y.S3|clk                      ;
+; 0.882  ; 0.882        ; 0.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; CLOCK_50~input|o                    ;
++--------+--------------+----------------+------------------+----------+------------+-------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; CLOCK_50   ; 1.135 ; 1.756 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; 0.622 ; 1.181 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; 0.801 ; 1.380 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; 0.777 ; 1.348 ; Rise       ; CLOCK_50        ;
+;  SW[3]    ; CLOCK_50   ; 0.786 ; 1.356 ; Rise       ; CLOCK_50        ;
+;  SW[4]    ; CLOCK_50   ; 0.884 ; 1.467 ; Rise       ; CLOCK_50        ;
+;  SW[5]    ; CLOCK_50   ; 0.786 ; 1.358 ; Rise       ; CLOCK_50        ;
+;  SW[6]    ; CLOCK_50   ; 0.776 ; 1.345 ; Rise       ; CLOCK_50        ;
+;  SW[7]    ; CLOCK_50   ; 0.885 ; 1.486 ; Rise       ; CLOCK_50        ;
+;  SW[8]    ; CLOCK_50   ; 1.135 ; 1.756 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; CLOCK_50   ; -0.422 ; -0.968 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; -0.422 ; -0.968 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; -0.594 ; -1.159 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; -0.571 ; -1.129 ; Rise       ; CLOCK_50        ;
+;  SW[3]    ; CLOCK_50   ; -0.580 ; -1.137 ; Rise       ; CLOCK_50        ;
+;  SW[4]    ; CLOCK_50   ; -0.645 ; -1.208 ; Rise       ; CLOCK_50        ;
+;  SW[5]    ; CLOCK_50   ; -0.579 ; -1.138 ; Rise       ; CLOCK_50        ;
+;  SW[6]    ; CLOCK_50   ; -0.570 ; -1.126 ; Rise       ; CLOCK_50        ;
+;  SW[7]    ; CLOCK_50   ; -0.662 ; -1.233 ; Rise       ; CLOCK_50        ;
+;  SW[8]    ; CLOCK_50   ; -0.748 ; -1.327 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 4.246 ; 4.448 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 3.419 ; 3.461 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 3.434 ; 3.483 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 4.246 ; 4.448 ; Rise       ; CLOCK_50        ;
+;  LEDG[3]  ; CLOCK_50   ; 3.428 ; 3.476 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 3.407 ; 3.437 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 3.342 ; 3.371 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 3.352 ; 3.391 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 3.366 ; 3.412 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 4.178 ; 4.377 ; Rise       ; CLOCK_50        ;
+;  LEDG[3]  ; CLOCK_50   ; 3.361 ; 3.406 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 3.342 ; 3.371 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Fast 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++-------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                           ;
++------------------+---------+-------+----------+---------+---------------------+
+; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+---------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -0.902  ; 0.187 ; N/A      ; N/A     ; -3.000              ;
+;  CLOCK_50        ; -0.902  ; 0.187 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -10.746 ; 0.0   ; 0.0      ; 0.0     ; -18.84              ;
+;  CLOCK_50        ; -10.746 ; 0.000 ; N/A      ; N/A     ; -18.840             ;
++------------------+---------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; CLOCK_50   ; 2.097 ; 2.552 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; 1.161 ; 1.588 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; 1.438 ; 1.902 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; 1.427 ; 1.851 ; Rise       ; CLOCK_50        ;
+;  SW[3]    ; CLOCK_50   ; 1.441 ; 1.860 ; Rise       ; CLOCK_50        ;
+;  SW[4]    ; CLOCK_50   ; 1.608 ; 2.060 ; Rise       ; CLOCK_50        ;
+;  SW[5]    ; CLOCK_50   ; 1.428 ; 1.855 ; Rise       ; CLOCK_50        ;
+;  SW[6]    ; CLOCK_50   ; 1.430 ; 1.848 ; Rise       ; CLOCK_50        ;
+;  SW[7]    ; CLOCK_50   ; 1.604 ; 2.083 ; Rise       ; CLOCK_50        ;
+;  SW[8]    ; CLOCK_50   ; 2.097 ; 2.552 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; CLOCK_50   ; -0.422 ; -0.968 ; Rise       ; CLOCK_50        ;
+;  SW[0]    ; CLOCK_50   ; -0.422 ; -0.968 ; Rise       ; CLOCK_50        ;
+;  SW[1]    ; CLOCK_50   ; -0.594 ; -1.159 ; Rise       ; CLOCK_50        ;
+;  SW[2]    ; CLOCK_50   ; -0.571 ; -1.129 ; Rise       ; CLOCK_50        ;
+;  SW[3]    ; CLOCK_50   ; -0.580 ; -1.137 ; Rise       ; CLOCK_50        ;
+;  SW[4]    ; CLOCK_50   ; -0.645 ; -1.208 ; Rise       ; CLOCK_50        ;
+;  SW[5]    ; CLOCK_50   ; -0.579 ; -1.138 ; Rise       ; CLOCK_50        ;
+;  SW[6]    ; CLOCK_50   ; -0.570 ; -1.126 ; Rise       ; CLOCK_50        ;
+;  SW[7]    ; CLOCK_50   ; -0.662 ; -1.233 ; Rise       ; CLOCK_50        ;
+;  SW[8]    ; CLOCK_50   ; -0.748 ; -1.327 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 6.887 ; 7.031 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 5.642 ; 5.684 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 5.667 ; 5.722 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 6.887 ; 7.031 ; Rise       ; CLOCK_50        ;
+;  LEDG[3]  ; CLOCK_50   ; 5.659 ; 5.699 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 5.569 ; 5.616 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDG[*]   ; CLOCK_50   ; 3.342 ; 3.371 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]  ; CLOCK_50   ; 3.352 ; 3.391 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]  ; CLOCK_50   ; 3.366 ; 3.412 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]  ; CLOCK_50   ; 4.178 ; 4.377 ; Rise       ; CLOCK_50        ;
+;  LEDG[3]  ; CLOCK_50   ; 3.361 ; 3.406 ; Rise       ; CLOCK_50        ;
+;  LEDG[9]  ; CLOCK_50   ; 3.342 ; 3.371 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; LEDG[0]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[1]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[2]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[3]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[4]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[5]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[6]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[7]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[8]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; LEDG[9]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; SW[9]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; KEY[1]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; KEY[2]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; CLOCK_50                ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; KEY[0]                  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[8]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[0]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[1]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[2]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[3]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[4]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[5]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[6]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[7]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; LEDG[0]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; LEDG[1]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; LEDG[2]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.33 V              ; -0.00317 V          ; 0.162 V                              ; 0.063 V                              ; 3.54e-09 s                  ; 3.41e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.33 V             ; -0.00317 V         ; 0.162 V                             ; 0.063 V                             ; 3.54e-09 s                 ; 3.41e-09 s                 ; Yes                       ; Yes                       ;
+; LEDG[3]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; LEDG[4]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; LEDG[5]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; LEDG[6]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; LEDG[7]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; LEDG[8]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; LEDG[9]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 7.25e-07 V                   ; 2.35 V              ; -0.0111 V           ; 0.113 V                              ; 0.035 V                              ; 7.76e-10 s                  ; 8.04e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 7.25e-07 V                  ; 2.35 V             ; -0.0111 V          ; 0.113 V                             ; 0.035 V                             ; 7.76e-10 s                 ; 8.04e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.68e-07 V                   ; 2.35 V              ; -0.0132 V           ; 0.2 V                                ; 0.027 V                              ; 5.26e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 5.68e-07 V                  ; 2.35 V             ; -0.0132 V          ; 0.2 V                               ; 0.027 V                             ; 5.26e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 9.36e-07 V                   ; 2.35 V              ; -0.00444 V          ; 0.18 V                               ; 0.019 V                              ; 7.23e-10 s                  ; 9.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 9.36e-07 V                  ; 2.35 V             ; -0.00444 V         ; 0.18 V                              ; 0.019 V                             ; 7.23e-10 s                 ; 9.82e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; LEDG[0]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; LEDG[1]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; LEDG[2]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.64 V              ; -0.0109 V           ; 0.244 V                              ; 0.16 V                               ; 2.42e-09 s                  ; 2.37e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.64 V             ; -0.0109 V          ; 0.244 V                             ; 0.16 V                              ; 2.42e-09 s                 ; 2.37e-09 s                 ; No                        ; Yes                       ;
+; LEDG[3]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; LEDG[4]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; LEDG[5]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; LEDG[6]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; LEDG[7]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; LEDG[8]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; LEDG[9]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.78e-08 V                   ; 2.71 V              ; -0.0349 V           ; 0.253 V                              ; 0.069 V                              ; 4.96e-10 s                  ; 5.19e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.78e-08 V                  ; 2.71 V             ; -0.0349 V          ; 0.253 V                             ; 0.069 V                             ; 4.96e-10 s                 ; 5.19e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.72 V              ; -0.0747 V           ; 0.28 V                               ; 0.169 V                              ; 3.1e-10 s                   ; 3.01e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.72 V             ; -0.0747 V          ; 0.28 V                              ; 0.169 V                             ; 3.1e-10 s                  ; 3.01e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.53e-08 V                   ; 2.7 V               ; -0.0212 V           ; 0.204 V                              ; 0.049 V                              ; 4.85e-10 s                  ; 6.73e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.53e-08 V                  ; 2.7 V              ; -0.0212 V          ; 0.204 V                             ; 0.049 V                             ; 4.85e-10 s                 ; 6.73e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLOCK_50   ; CLOCK_50 ; 78       ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLOCK_50   ; CLOCK_50 ; 78       ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 10    ; 10   ;
+; Unconstrained Input Port Paths  ; 18    ; 18   ;
+; Unconstrained Output Ports      ; 5     ; 5    ;
+; Unconstrained Output Port Paths ; 5     ; 5    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed Nov 11 17:23:07 2020
+Info: Command: quartus_sta L11P1 -c L11P1
+Info: qsta_default_script.tcl version: #1
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (21077): Core supply voltage is 1.2V
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'L11P1.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name CLOCK_50 CLOCK_50
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.902
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.902       -10.746 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.358
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.358         0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -3.000       -18.000 CLOCK_50 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.708
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.708        -8.210 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.312
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.312         0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -3.000       -18.000 CLOCK_50 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.066
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.066        -0.462 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.187
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.187         0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -3.000       -18.840 CLOCK_50 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 598 megabytes
+    Info: Processing ended: Wed Nov 11 17:23:09 2020
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+

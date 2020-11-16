@@ -1,5 +1,5 @@
 Fitter report for L1P3
-Wed Sep 16 23:12:17 2020
+Wed Sep 23 16:37:10 2020
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Wed Sep 16 23:12:17 2020           ;
+; Fitter Status                      ; Successful - Wed Sep 23 16:37:10 2020           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; L1P3                                            ;
 ; Top-level Entity Name              ; L1P3                                            ;
@@ -149,15 +149,14 @@ applicable agreement for further details.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.21        ;
-; Maximum used               ; 4           ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   7.1%      ;
-;     Processors 5-8         ;   0.0%      ;
+;     Processors 2-8         ; < 0.1%      ;
 +----------------------------+-------------+
 
 
@@ -297,7 +296,7 @@ applicable agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/UNSW/3222/lab/lab1/part3/L1P3_restored/output_files/L1P3.pin.
+The pin-out file can be found in D:/unsw/3222/lab/lab1/part3/L1P3_restored/output_files/L1P3.pin.
 
 
 +--------------------------------------------------------------------+
@@ -1278,7 +1277,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+
 ; Fitter Messages ;
 +-----------------+
-Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (119006): Selected device EP3C16F484C6 for design "L1P3"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -1379,25 +1378,25 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "KEY[0]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "KEY[1]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "KEY[2]" is assigned to location or region, but does not exist in design
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:03
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:00
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X0_Y20 to location X9_Y29
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.56 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.27 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:03
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169177): 10 pins must meet Altera requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing Cyclone III Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
     Info (169178): Pin SW[6] uses I/O standard 3.3-V LVTTL at H7
@@ -1410,17 +1409,17 @@ Warning (169177): 10 pins must meet Altera requirements for 3.3-, 3.0-, and 2.5-
     Info (169178): Pin SW[3] uses I/O standard 3.3-V LVTTL at G4
     Info (169178): Pin SW[5] uses I/O standard 3.3-V LVTTL at J7
     Info (169178): Pin SW[1] uses I/O standard 3.3-V LVTTL at H5
-Info (144001): Generated suppressed messages file C:/UNSW/3222/lab/lab1/part3/L1P3_restored/output_files/L1P3.fit.smsg
+Info (144001): Generated suppressed messages file D:/unsw/3222/lab/lab1/part3/L1P3_restored/output_files/L1P3.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 80 warnings
-    Info: Peak virtual memory: 5266 megabytes
-    Info: Processing ended: Wed Sep 16 23:12:19 2020
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:20
+    Info: Peak virtual memory: 1475 megabytes
+    Info: Processing ended: Wed Sep 23 16:37:11 2020
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:08
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/UNSW/3222/lab/lab1/part3/L1P3_restored/output_files/L1P3.fit.smsg.
+The suppressed messages can be found in D:/unsw/3222/lab/lab1/part3/L1P3_restored/output_files/L1P3.fit.smsg.
 
 

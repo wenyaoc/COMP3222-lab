@@ -1,5 +1,5 @@
 Analysis & Synthesis report for L1P3
-Wed Sep 16 23:11:58 2020
+Wed Sep 23 16:37:03 2020
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -42,7 +42,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Sep 16 23:11:58 2020           ;
+; Analysis & Synthesis Status        ; Successful - Wed Sep 23 16:37:03 2020           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; L1P3                                            ;
 ; Top-level Entity Name              ; L1P3                                            ;
@@ -152,7 +152,7 @@ applicable agreement for further details.
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
 ; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -168,7 +168,7 @@ applicable agreement for further details.
 +----------------------------------+-----------------+-----------------+----------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                       ; Library ;
 +----------------------------------+-----------------+-----------------+----------------------------------------------------+---------+
-; L1P3.vhd                         ; yes             ; User VHDL File  ; C:/UNSW/3222/lab/lab1/part3/L1P3_restored/L1P3.vhd ;         ;
+; L1P3.vhd                         ; yes             ; User VHDL File  ; D:/unsw/3222/lab/lab1/part3/L1P3_restored/L1P3.vhd ;         ;
 +----------------------------------+-----------------+-----------------+----------------------------------------------------+---------+
 
 
@@ -251,9 +251,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Sep 16 23:11:54 2020
+    Info: Processing started: Wed Sep 23 16:37:01 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off L1P3 -c L1P3
-Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file l1p3.vhd
     Info (12022): Found design unit 1: L1P3-behaviour
     Info (12023): Found entity 1: L1P3
@@ -278,9 +278,9 @@ Info (21057): Implemented 24 device resources after synthesis - the final resour
     Info (21059): Implemented 10 output pins
     Info (21061): Implemented 4 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 4644 megabytes
-    Info: Processing ended: Wed Sep 16 23:11:59 2020
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Peak virtual memory: 595 megabytes
+    Info: Processing ended: Wed Sep 23 16:37:03 2020
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 

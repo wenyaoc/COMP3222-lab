@@ -1,0 +1,421 @@
+Simulator report for L11P2
+Mon Nov 16 00:05:53 2020
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|ALTSYNCRAM
+  6. Coverage Summary
+  7. Complete 1/0-Value Coverage
+  8. Missing 1-Value Coverage
+  9. Missing 0-Value Coverage
+ 10. Simulator INI Usage
+ 11. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 7.0 us       ;
+; Simulation Netlist Size     ; 238 nodes    ;
+; Simulation Coverage         ;      91.18 % ;
+; Total Number of Transitions ; 63716        ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
++-----------------------------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                                                            ;
++--------------------------------------------------------------------------------------------+--------------------------------------------------+---------------+
+; Option                                                                                     ; Setting                                          ; Default Value ;
++--------------------------------------------------------------------------------------------+--------------------------------------------------+---------------+
+; Simulation mode                                                                            ; Functional                                       ; Timing        ;
+; Start time                                                                                 ; 0 ns                                             ; 0 ns          ;
+; Simulation results format                                                                  ; VWF                                              ;               ;
+; Vector input source                                                                        ; D:/unsw/3222/lab/lab11/L11P2_restored2/L11P2.vwf ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On                                               ; On            ;
+; Check outputs                                                                              ; Off                                              ; Off           ;
+; Report simulation coverage                                                                 ; On                                               ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On                                               ; On            ;
+; Display missing 1-value coverage report                                                    ; On                                               ; On            ;
+; Display missing 0-value coverage report                                                    ; On                                               ; On            ;
+; Detect setup and hold time violations                                                      ; Off                                              ; Off           ;
+; Detect glitches                                                                            ; Off                                              ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off                                              ; Off           ;
+; Generate Signal Activity File                                                              ; Off                                              ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off                                              ; Off           ;
+; Group bus channels in simulation results                                                   ; Off                                              ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On                                               ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE                                       ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off                                              ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off                                              ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto                                             ; Auto          ;
++--------------------------------------------------------------------------------------------+--------------------------------------------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II 64-Bit to view the waveform report data.
+
+
++-------------------------------------------------------------------------------------------------------+
+; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|ALTSYNCRAM ;
++-------------------------------------------------------------------------------------------------------+
+Please refer to fitter text-based report (*.fit.rpt) to view logical memory report content in ASCII.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      91.18 % ;
+; Total nodes checked                                 ; 238          ;
+; Total output ports checked                          ; 238          ;
+; Total output ports with complete 1/0-value coverage ; 217          ;
+; Total output ports with no 1/0-value coverage       ; 12           ;
+; Total output ports with no 1-value coverage         ; 14           ;
+; Total output ports with no 0-value coverage         ; 19           ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                                                                                                                                    ;
++---------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+------------------+
+; Node Name                                                                                               ; Output Port Name                                                                                  ; Output Port Type ;
++---------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+------------------+
+; |L11P2|y~0                                                                                              ; |L11P2|y~0                                                                                        ; out              ;
+; |L11P2|y~1                                                                                              ; |L11P2|y~1                                                                                        ; out              ;
+; |L11P2|y~2                                                                                              ; |L11P2|y~2                                                                                        ; out              ;
+; |L11P2|y~3                                                                                              ; |L11P2|y~3                                                                                        ; out              ;
+; |L11P2|WideOr0                                                                                          ; |L11P2|WideOr0                                                                                    ; out0             ;
+; |L11P2|y~4                                                                                              ; |L11P2|y~4                                                                                        ; out              ;
+; |L11P2|y~5                                                                                              ; |L11P2|y~5                                                                                        ; out              ;
+; |L11P2|y~6                                                                                              ; |L11P2|y~6                                                                                        ; out0             ;
+; |L11P2|y.S1                                                                                             ; |L11P2|y.S1                                                                                       ; regout           ;
+; |L11P2|y.S2                                                                                             ; |L11P2|y.S2                                                                                       ; regout           ;
+; |L11P2|y.S3                                                                                             ; |L11P2|y.S3                                                                                       ; regout           ;
+; |L11P2|y.S4                                                                                             ; |L11P2|y.S4                                                                                       ; regout           ;
+; |L11P2|y.S5                                                                                             ; |L11P2|y.S5                                                                                       ; regout           ;
+; |L11P2|y.S6                                                                                             ; |L11P2|y.S6                                                                                       ; regout           ;
+; |L11P2|y.S7                                                                                             ; |L11P2|y.S7                                                                                       ; regout           ;
+; |L11P2|MINin                                                                                            ; |L11P2|MINin                                                                                      ; out0             ;
+; |L11P2|MAXin                                                                                            ; |L11P2|MAXin                                                                                      ; out0             ;
+; |L11P2|Found~0                                                                                          ; |L11P2|Found~0                                                                                    ; out              ;
+; |L11P2|y.S8                                                                                             ; |L11P2|y.S8                                                                                       ; regout           ;
+; |L11P2|MaxltMin                                                                                         ; |L11P2|MaxltMin                                                                                   ; out0             ;
+; |L11P2|MINaddr[4]                                                                                       ; |L11P2|MINaddr[4]                                                                                 ; out              ;
+; |L11P2|MINaddr[3]                                                                                       ; |L11P2|MINaddr[3]                                                                                 ; out              ;
+; |L11P2|MINaddr[2]                                                                                       ; |L11P2|MINaddr[2]                                                                                 ; out              ;
+; |L11P2|MINaddr[1]                                                                                       ; |L11P2|MINaddr[1]                                                                                 ; out              ;
+; |L11P2|MINaddr[0]                                                                                       ; |L11P2|MINaddr[0]                                                                                 ; out              ;
+; |L11P2|MAXaddr[4]                                                                                       ; |L11P2|MAXaddr[4]                                                                                 ; out              ;
+; |L11P2|MAXaddr[3]                                                                                       ; |L11P2|MAXaddr[3]                                                                                 ; out              ;
+; |L11P2|MAXaddr[2]                                                                                       ; |L11P2|MAXaddr[2]                                                                                 ; out              ;
+; |L11P2|MAXaddr[1]                                                                                       ; |L11P2|MAXaddr[1]                                                                                 ; out              ;
+; |L11P2|MAXaddr[0]                                                                                       ; |L11P2|MAXaddr[0]                                                                                 ; out              ;
+; |L11P2|Clock                                                                                            ; |L11P2|Clock                                                                                      ; out              ;
+; |L11P2|s                                                                                                ; |L11P2|s                                                                                          ; out              ;
+; |L11P2|Data[0]                                                                                          ; |L11P2|Data[0]                                                                                    ; out              ;
+; |L11P2|Data[1]                                                                                          ; |L11P2|Data[1]                                                                                    ; out              ;
+; |L11P2|Data[2]                                                                                          ; |L11P2|Data[2]                                                                                    ; out              ;
+; |L11P2|Data[3]                                                                                          ; |L11P2|Data[3]                                                                                    ; out              ;
+; |L11P2|Data[4]                                                                                          ; |L11P2|Data[4]                                                                                    ; out              ;
+; |L11P2|Data[5]                                                                                          ; |L11P2|Data[5]                                                                                    ; out              ;
+; |L11P2|Addr[0]                                                                                          ; |L11P2|Addr[0]                                                                                    ; pin_out          ;
+; |L11P2|Addr[1]                                                                                          ; |L11P2|Addr[1]                                                                                    ; pin_out          ;
+; |L11P2|Addr[2]                                                                                          ; |L11P2|Addr[2]                                                                                    ; pin_out          ;
+; |L11P2|Addr[3]                                                                                          ; |L11P2|Addr[3]                                                                                    ; pin_out          ;
+; |L11P2|Addr[4]                                                                                          ; |L11P2|Addr[4]                                                                                    ; pin_out          ;
+; |L11P2|Found                                                                                            ; |L11P2|Found                                                                                      ; pin_out          ;
+; |L11P2|Done                                                                                             ; |L11P2|Done                                                                                       ; pin_out          ;
+; |L11P2|y~7                                                                                              ; |L11P2|y~7                                                                                        ; out0             ;
+; |L11P2|Msel                                                                                             ; |L11P2|Msel                                                                                       ; out0             ;
+; |L11P2|EA                                                                                               ; |L11P2|EA                                                                                         ; out0             ;
+; |L11P2|WideOr0~1                                                                                        ; |L11P2|WideOr0~1                                                                                  ; out0             ;
+; |L11P2|WideOr0~2                                                                                        ; |L11P2|WideOr0~2                                                                                  ; out0             ;
+; |L11P2|y.S5~0                                                                                           ; |L11P2|y.S5~0                                                                                     ; out0             ;
+; |L11P2|WideOr0~3                                                                                        ; |L11P2|WideOr0~3                                                                                  ; out0             ;
+; |L11P2|y.S6~0                                                                                           ; |L11P2|y.S6~0                                                                                     ; out0             ;
+; |L11P2|WideOr0~4                                                                                        ; |L11P2|WideOr0~4                                                                                  ; out0             ;
+; |L11P2|WideOr1~0                                                                                        ; |L11P2|WideOr1~0                                                                                  ; out0             ;
+; |L11P2|WideOr0~5                                                                                        ; |L11P2|WideOr0~5                                                                                  ; out0             ;
+; |L11P2|y~12                                                                                             ; |L11P2|y~12                                                                                       ; out0             ;
+; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|ram_block1a1 ; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|q_a[1] ; portadataout0    ;
+; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|ram_block1a2 ; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|q_a[2] ; portadataout0    ;
+; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|ram_block1a3 ; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|q_a[3] ; portadataout0    ;
+; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|ram_block1a4 ; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|q_a[4] ; portadataout0    ;
+; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|ram_block1a5 ; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|q_a[5] ; portadataout0    ;
+; |L11P2|shiftr:shift_reg|Q[0]                                                                            ; |L11P2|shiftr:shift_reg|Q[0]                                                                      ; regout           ;
+; |L11P2|shiftr:shift_reg|Q[4]                                                                            ; |L11P2|shiftr:shift_reg|Q[4]                                                                      ; regout           ;
+; |L11P2|shiftr:shift_reg|Q[3]                                                                            ; |L11P2|shiftr:shift_reg|Q[3]                                                                      ; regout           ;
+; |L11P2|shiftr:shift_reg|Q[2]                                                                            ; |L11P2|shiftr:shift_reg|Q[2]                                                                      ; regout           ;
+; |L11P2|shiftr:shift_reg|Q[1]                                                                            ; |L11P2|shiftr:shift_reg|Q[1]                                                                      ; regout           ;
+; |L11P2|regne:max_reg|Q~0                                                                                ; |L11P2|regne:max_reg|Q~0                                                                          ; out              ;
+; |L11P2|regne:max_reg|Q~1                                                                                ; |L11P2|regne:max_reg|Q~1                                                                          ; out              ;
+; |L11P2|regne:max_reg|Q~2                                                                                ; |L11P2|regne:max_reg|Q~2                                                                          ; out              ;
+; |L11P2|regne:max_reg|Q~3                                                                                ; |L11P2|regne:max_reg|Q~3                                                                          ; out              ;
+; |L11P2|regne:max_reg|Q~4                                                                                ; |L11P2|regne:max_reg|Q~4                                                                          ; out              ;
+; |L11P2|regne:max_reg|Q~5                                                                                ; |L11P2|regne:max_reg|Q~5                                                                          ; out              ;
+; |L11P2|regne:max_reg|Q~6                                                                                ; |L11P2|regne:max_reg|Q~6                                                                          ; out              ;
+; |L11P2|regne:max_reg|Q~7                                                                                ; |L11P2|regne:max_reg|Q~7                                                                          ; out              ;
+; |L11P2|regne:max_reg|Q~8                                                                                ; |L11P2|regne:max_reg|Q~8                                                                          ; out              ;
+; |L11P2|regne:max_reg|Q~9                                                                                ; |L11P2|regne:max_reg|Q~9                                                                          ; out              ;
+; |L11P2|regne:max_reg|Q[0]                                                                               ; |L11P2|regne:max_reg|Q[0]                                                                         ; regout           ;
+; |L11P2|regne:max_reg|Q[1]                                                                               ; |L11P2|regne:max_reg|Q[1]                                                                         ; regout           ;
+; |L11P2|regne:max_reg|Q[2]                                                                               ; |L11P2|regne:max_reg|Q[2]                                                                         ; regout           ;
+; |L11P2|regne:max_reg|Q[3]                                                                               ; |L11P2|regne:max_reg|Q[3]                                                                         ; regout           ;
+; |L11P2|regne:max_reg|Q[4]                                                                               ; |L11P2|regne:max_reg|Q[4]                                                                         ; regout           ;
+; |L11P2|regne:min_reg|Q~0                                                                                ; |L11P2|regne:min_reg|Q~0                                                                          ; out              ;
+; |L11P2|regne:min_reg|Q~1                                                                                ; |L11P2|regne:min_reg|Q~1                                                                          ; out              ;
+; |L11P2|regne:min_reg|Q~2                                                                                ; |L11P2|regne:min_reg|Q~2                                                                          ; out              ;
+; |L11P2|regne:min_reg|Q~3                                                                                ; |L11P2|regne:min_reg|Q~3                                                                          ; out              ;
+; |L11P2|regne:min_reg|Q~4                                                                                ; |L11P2|regne:min_reg|Q~4                                                                          ; out              ;
+; |L11P2|regne:min_reg|Q~5                                                                                ; |L11P2|regne:min_reg|Q~5                                                                          ; out              ;
+; |L11P2|regne:min_reg|Q~6                                                                                ; |L11P2|regne:min_reg|Q~6                                                                          ; out              ;
+; |L11P2|regne:min_reg|Q~7                                                                                ; |L11P2|regne:min_reg|Q~7                                                                          ; out              ;
+; |L11P2|regne:min_reg|Q~8                                                                                ; |L11P2|regne:min_reg|Q~8                                                                          ; out              ;
+; |L11P2|regne:min_reg|Q~9                                                                                ; |L11P2|regne:min_reg|Q~9                                                                          ; out              ;
+; |L11P2|regne:min_reg|Q[0]                                                                               ; |L11P2|regne:min_reg|Q[0]                                                                         ; regout           ;
+; |L11P2|regne:min_reg|Q[1]                                                                               ; |L11P2|regne:min_reg|Q[1]                                                                         ; regout           ;
+; |L11P2|regne:min_reg|Q[2]                                                                               ; |L11P2|regne:min_reg|Q[2]                                                                         ; regout           ;
+; |L11P2|regne:min_reg|Q[3]                                                                               ; |L11P2|regne:min_reg|Q[3]                                                                         ; regout           ;
+; |L11P2|regne:min_reg|Q[4]                                                                               ; |L11P2|regne:min_reg|Q[4]                                                                         ; regout           ;
+; |L11P2|Selector0~0                                                                                      ; |L11P2|Selector0~0                                                                                ; out0             ;
+; |L11P2|Selector1~1                                                                                      ; |L11P2|Selector1~1                                                                                ; out0             ;
+; |L11P2|Selector1~2                                                                                      ; |L11P2|Selector1~2                                                                                ; out0             ;
+; |L11P2|Selector1~3                                                                                      ; |L11P2|Selector1~3                                                                                ; out0             ;
+; |L11P2|Selector1~4                                                                                      ; |L11P2|Selector1~4                                                                                ; out0             ;
+; |L11P2|Selector2~0                                                                                      ; |L11P2|Selector2~0                                                                                ; out0             ;
+; |L11P2|Selector2~1                                                                                      ; |L11P2|Selector2~1                                                                                ; out0             ;
+; |L11P2|Selector2~2                                                                                      ; |L11P2|Selector2~2                                                                                ; out0             ;
+; |L11P2|Selector2~3                                                                                      ; |L11P2|Selector2~3                                                                                ; out0             ;
+; |L11P2|LessThan0~0                                                                                      ; |L11P2|LessThan0~0                                                                                ; out0             ;
+; |L11P2|LessThan0~1                                                                                      ; |L11P2|LessThan0~1                                                                                ; out0             ;
+; |L11P2|LessThan0~2                                                                                      ; |L11P2|LessThan0~2                                                                                ; out0             ;
+; |L11P2|LessThan0~3                                                                                      ; |L11P2|LessThan0~3                                                                                ; out0             ;
+; |L11P2|LessThan0~4                                                                                      ; |L11P2|LessThan0~4                                                                                ; out0             ;
+; |L11P2|LessThan0~5                                                                                      ; |L11P2|LessThan0~5                                                                                ; out0             ;
+; |L11P2|LessThan0~6                                                                                      ; |L11P2|LessThan0~6                                                                                ; out0             ;
+; |L11P2|LessThan0~7                                                                                      ; |L11P2|LessThan0~7                                                                                ; out0             ;
+; |L11P2|LessThan0~8                                                                                      ; |L11P2|LessThan0~8                                                                                ; out0             ;
+; |L11P2|LessThan0~9                                                                                      ; |L11P2|LessThan0~9                                                                                ; out0             ;
+; |L11P2|LessThan0~10                                                                                     ; |L11P2|LessThan0~10                                                                               ; out0             ;
+; |L11P2|LessThan0~11                                                                                     ; |L11P2|LessThan0~11                                                                               ; out0             ;
+; |L11P2|LessThan0~12                                                                                     ; |L11P2|LessThan0~12                                                                               ; out0             ;
+; |L11P2|LessThan0~13                                                                                     ; |L11P2|LessThan0~13                                                                               ; out0             ;
+; |L11P2|LessThan0~14                                                                                     ; |L11P2|LessThan0~14                                                                               ; out0             ;
+; |L11P2|LessThan0~15                                                                                     ; |L11P2|LessThan0~15                                                                               ; out0             ;
+; |L11P2|LessThan0~16                                                                                     ; |L11P2|LessThan0~16                                                                               ; out0             ;
+; |L11P2|LessThan1~0                                                                                      ; |L11P2|LessThan1~0                                                                                ; out0             ;
+; |L11P2|LessThan1~1                                                                                      ; |L11P2|LessThan1~1                                                                                ; out0             ;
+; |L11P2|LessThan1~2                                                                                      ; |L11P2|LessThan1~2                                                                                ; out0             ;
+; |L11P2|LessThan1~3                                                                                      ; |L11P2|LessThan1~3                                                                                ; out0             ;
+; |L11P2|LessThan1~4                                                                                      ; |L11P2|LessThan1~4                                                                                ; out0             ;
+; |L11P2|LessThan1~5                                                                                      ; |L11P2|LessThan1~5                                                                                ; out0             ;
+; |L11P2|LessThan1~6                                                                                      ; |L11P2|LessThan1~6                                                                                ; out0             ;
+; |L11P2|LessThan1~7                                                                                      ; |L11P2|LessThan1~7                                                                                ; out0             ;
+; |L11P2|LessThan1~8                                                                                      ; |L11P2|LessThan1~8                                                                                ; out0             ;
+; |L11P2|LessThan1~9                                                                                      ; |L11P2|LessThan1~9                                                                                ; out0             ;
+; |L11P2|LessThan1~10                                                                                     ; |L11P2|LessThan1~10                                                                               ; out0             ;
+; |L11P2|LessThan1~11                                                                                     ; |L11P2|LessThan1~11                                                                               ; out0             ;
+; |L11P2|LessThan1~12                                                                                     ; |L11P2|LessThan1~12                                                                               ; out0             ;
+; |L11P2|LessThan1~13                                                                                     ; |L11P2|LessThan1~13                                                                               ; out0             ;
+; |L11P2|LessThan1~14                                                                                     ; |L11P2|LessThan1~14                                                                               ; out0             ;
+; |L11P2|LessThan1~15                                                                                     ; |L11P2|LessThan1~15                                                                               ; out0             ;
+; |L11P2|LessThan1~16                                                                                     ; |L11P2|LessThan1~16                                                                               ; out0             ;
+; |L11P2|LessThan1~17                                                                                     ; |L11P2|LessThan1~17                                                                               ; out0             ;
+; |L11P2|LessThan1~18                                                                                     ; |L11P2|LessThan1~18                                                                               ; out0             ;
+; |L11P2|LessThan1~19                                                                                     ; |L11P2|LessThan1~19                                                                               ; out0             ;
+; |L11P2|LessThan1~20                                                                                     ; |L11P2|LessThan1~20                                                                               ; out0             ;
+; |L11P2|LessThan1~22                                                                                     ; |L11P2|LessThan1~22                                                                               ; out0             ;
+; |L11P2|LessThan1~24                                                                                     ; |L11P2|LessThan1~24                                                                               ; out0             ;
+; |L11P2|LessThan1~26                                                                                     ; |L11P2|LessThan1~26                                                                               ; out0             ;
+; |L11P2|LessThan1~28                                                                                     ; |L11P2|LessThan1~28                                                                               ; out0             ;
+; |L11P2|LessThan2~1                                                                                      ; |L11P2|LessThan2~1                                                                                ; out0             ;
+; |L11P2|LessThan2~2                                                                                      ; |L11P2|LessThan2~2                                                                                ; out0             ;
+; |L11P2|LessThan2~3                                                                                      ; |L11P2|LessThan2~3                                                                                ; out0             ;
+; |L11P2|LessThan2~5                                                                                      ; |L11P2|LessThan2~5                                                                                ; out0             ;
+; |L11P2|LessThan2~6                                                                                      ; |L11P2|LessThan2~6                                                                                ; out0             ;
+; |L11P2|LessThan2~7                                                                                      ; |L11P2|LessThan2~7                                                                                ; out0             ;
+; |L11P2|LessThan2~8                                                                                      ; |L11P2|LessThan2~8                                                                                ; out0             ;
+; |L11P2|LessThan2~9                                                                                      ; |L11P2|LessThan2~9                                                                                ; out0             ;
+; |L11P2|LessThan2~10                                                                                     ; |L11P2|LessThan2~10                                                                               ; out0             ;
+; |L11P2|LessThan2~11                                                                                     ; |L11P2|LessThan2~11                                                                               ; out0             ;
+; |L11P2|LessThan2~12                                                                                     ; |L11P2|LessThan2~12                                                                               ; out0             ;
+; |L11P2|LessThan2~13                                                                                     ; |L11P2|LessThan2~13                                                                               ; out0             ;
+; |L11P2|LessThan2~14                                                                                     ; |L11P2|LessThan2~14                                                                               ; out0             ;
+; |L11P2|LessThan2~15                                                                                     ; |L11P2|LessThan2~15                                                                               ; out0             ;
+; |L11P2|LessThan2~16                                                                                     ; |L11P2|LessThan2~16                                                                               ; out0             ;
+; |L11P2|LessThan2~17                                                                                     ; |L11P2|LessThan2~17                                                                               ; out0             ;
+; |L11P2|LessThan2~18                                                                                     ; |L11P2|LessThan2~18                                                                               ; out0             ;
+; |L11P2|LessThan2~19                                                                                     ; |L11P2|LessThan2~19                                                                               ; out0             ;
+; |L11P2|LessThan2~20                                                                                     ; |L11P2|LessThan2~20                                                                               ; out0             ;
+; |L11P2|LessThan2~22                                                                                     ; |L11P2|LessThan2~22                                                                               ; out0             ;
+; |L11P2|LessThan2~24                                                                                     ; |L11P2|LessThan2~24                                                                               ; out0             ;
+; |L11P2|LessThan2~26                                                                                     ; |L11P2|LessThan2~26                                                                               ; out0             ;
+; |L11P2|LessThan2~28                                                                                     ; |L11P2|LessThan2~28                                                                               ; out0             ;
+; |L11P2|Add0~0                                                                                           ; |L11P2|Add0~0                                                                                     ; out0             ;
+; |L11P2|Add0~1                                                                                           ; |L11P2|Add0~1                                                                                     ; out0             ;
+; |L11P2|Add0~2                                                                                           ; |L11P2|Add0~2                                                                                     ; out0             ;
+; |L11P2|Add0~3                                                                                           ; |L11P2|Add0~3                                                                                     ; out0             ;
+; |L11P2|Add0~4                                                                                           ; |L11P2|Add0~4                                                                                     ; out0             ;
+; |L11P2|Add0~5                                                                                           ; |L11P2|Add0~5                                                                                     ; out0             ;
+; |L11P2|Add0~6                                                                                           ; |L11P2|Add0~6                                                                                     ; out0             ;
+; |L11P2|Add1~0                                                                                           ; |L11P2|Add1~0                                                                                     ; out0             ;
+; |L11P2|Add1~1                                                                                           ; |L11P2|Add1~1                                                                                     ; out0             ;
+; |L11P2|Add1~2                                                                                           ; |L11P2|Add1~2                                                                                     ; out0             ;
+; |L11P2|Add1~3                                                                                           ; |L11P2|Add1~3                                                                                     ; out0             ;
+; |L11P2|Add1~4                                                                                           ; |L11P2|Add1~4                                                                                     ; out0             ;
+; |L11P2|Add1~5                                                                                           ; |L11P2|Add1~5                                                                                     ; out0             ;
+; |L11P2|Add1~6                                                                                           ; |L11P2|Add1~6                                                                                     ; out0             ;
+; |L11P2|Add1~7                                                                                           ; |L11P2|Add1~7                                                                                     ; out0             ;
+; |L11P2|Add1~8                                                                                           ; |L11P2|Add1~8                                                                                     ; out0             ;
+; |L11P2|Add1~9                                                                                           ; |L11P2|Add1~9                                                                                     ; out0             ;
+; |L11P2|Add2~0                                                                                           ; |L11P2|Add2~0                                                                                     ; out0             ;
+; |L11P2|Add2~1                                                                                           ; |L11P2|Add2~1                                                                                     ; out0             ;
+; |L11P2|Add2~2                                                                                           ; |L11P2|Add2~2                                                                                     ; out0             ;
+; |L11P2|Add2~3                                                                                           ; |L11P2|Add2~3                                                                                     ; out0             ;
+; |L11P2|Add2~4                                                                                           ; |L11P2|Add2~4                                                                                     ; out0             ;
+; |L11P2|Add2~5                                                                                           ; |L11P2|Add2~5                                                                                     ; out0             ;
+; |L11P2|Add2~6                                                                                           ; |L11P2|Add2~6                                                                                     ; out0             ;
+; |L11P2|Add2~7                                                                                           ; |L11P2|Add2~7                                                                                     ; out0             ;
+; |L11P2|Add2~8                                                                                           ; |L11P2|Add2~8                                                                                     ; out0             ;
+; |L11P2|Add2~9                                                                                           ; |L11P2|Add2~9                                                                                     ; out0             ;
+; |L11P2|Add2~10                                                                                          ; |L11P2|Add2~10                                                                                    ; out0             ;
+; |L11P2|Add2~11                                                                                          ; |L11P2|Add2~11                                                                                    ; out0             ;
+; |L11P2|Add2~12                                                                                          ; |L11P2|Add2~12                                                                                    ; out0             ;
+; |L11P2|Add2~13                                                                                          ; |L11P2|Add2~13                                                                                    ; out0             ;
+; |L11P2|Add2~14                                                                                          ; |L11P2|Add2~14                                                                                    ; out0             ;
+; |L11P2|Add2~15                                                                                          ; |L11P2|Add2~15                                                                                    ; out0             ;
+; |L11P2|Add2~16                                                                                          ; |L11P2|Add2~16                                                                                    ; out0             ;
+; |L11P2|Add2~17                                                                                          ; |L11P2|Add2~17                                                                                    ; out0             ;
+; |L11P2|Add2~18                                                                                          ; |L11P2|Add2~18                                                                                    ; out0             ;
+; |L11P2|Add2~19                                                                                          ; |L11P2|Add2~19                                                                                    ; out0             ;
+; |L11P2|Add2~20                                                                                          ; |L11P2|Add2~20                                                                                    ; out0             ;
+; |L11P2|Equal0~0                                                                                         ; |L11P2|Equal0~0                                                                                   ; out0             ;
+; |L11P2|Equal0~1                                                                                         ; |L11P2|Equal0~1                                                                                   ; out0             ;
+; |L11P2|Equal0~2                                                                                         ; |L11P2|Equal0~2                                                                                   ; out0             ;
+; |L11P2|Equal0~3                                                                                         ; |L11P2|Equal0~3                                                                                   ; out0             ;
+; |L11P2|Equal0~4                                                                                         ; |L11P2|Equal0~4                                                                                   ; out0             ;
+; |L11P2|Equal0~5                                                                                         ; |L11P2|Equal0~5                                                                                   ; out0             ;
+; |L11P2|Equal0~8                                                                                         ; |L11P2|Equal0~8                                                                                   ; out0             ;
+; |L11P2|Equal1~0                                                                                         ; |L11P2|Equal1~0                                                                                   ; out0             ;
++---------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                                                                                                                                                       ;
++---------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+------------------+
+; Node Name                                                                                               ; Output Port Name                                                                                  ; Output Port Type ;
++---------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+------------------+
+; |L11P2|Data[7]                                                                                          ; |L11P2|Data[7]                                                                                    ; out              ;
+; |L11P2|y~8                                                                                              ; |L11P2|y~8                                                                                        ; out0             ;
+; |L11P2|y~16                                                                                             ; |L11P2|y~16                                                                                       ; out0             ;
+; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|ram_block1a6 ; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|q_a[6] ; portadataout0    ;
+; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|ram_block1a7 ; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|q_a[7] ; portadataout0    ;
+; |L11P2|Selector2~4                                                                                      ; |L11P2|Selector2~4                                                                                ; out0             ;
+; |L11P2|LessThan1~21                                                                                     ; |L11P2|LessThan1~21                                                                               ; out0             ;
+; |L11P2|LessThan1~25                                                                                     ; |L11P2|LessThan1~25                                                                               ; out0             ;
+; |L11P2|LessThan1~27                                                                                     ; |L11P2|LessThan1~27                                                                               ; out0             ;
+; |L11P2|LessThan2~0                                                                                      ; |L11P2|LessThan2~0                                                                                ; out0             ;
+; |L11P2|LessThan2~4                                                                                      ; |L11P2|LessThan2~4                                                                                ; out0             ;
+; |L11P2|LessThan2~25                                                                                     ; |L11P2|LessThan2~25                                                                               ; out0             ;
+; |L11P2|LessThan2~27                                                                                     ; |L11P2|LessThan2~27                                                                               ; out0             ;
+; |L11P2|Equal0~7                                                                                         ; |L11P2|Equal0~7                                                                                   ; out0             ;
++---------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                                                                                                                                                       ;
++---------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+------------------+
+; Node Name                                                                                               ; Output Port Name                                                                                  ; Output Port Type ;
++---------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+------------------+
+; |L11P2|Resetn                                                                                           ; |L11P2|Resetn                                                                                     ; out              ;
+; |L11P2|Data[6]                                                                                          ; |L11P2|Data[6]                                                                                    ; out              ;
+; |L11P2|Data[7]                                                                                          ; |L11P2|Data[7]                                                                                    ; out              ;
+; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|ram_block1a0 ; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|q_a[0] ; portadataout0    ;
+; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|ram_block1a6 ; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|q_a[6] ; portadataout0    ;
+; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|ram_block1a7 ; |L11P2|memory_block:mem_blk|altsyncram:altsyncram_component|altsyncram_2cc1:auto_generated|q_a[7] ; portadataout0    ;
+; |L11P2|Selector2~4                                                                                      ; |L11P2|Selector2~4                                                                                ; out0             ;
+; |L11P2|LessThan1~21                                                                                     ; |L11P2|LessThan1~21                                                                               ; out0             ;
+; |L11P2|LessThan1~23                                                                                     ; |L11P2|LessThan1~23                                                                               ; out0             ;
+; |L11P2|LessThan1~25                                                                                     ; |L11P2|LessThan1~25                                                                               ; out0             ;
+; |L11P2|LessThan1~27                                                                                     ; |L11P2|LessThan1~27                                                                               ; out0             ;
+; |L11P2|LessThan2~0                                                                                      ; |L11P2|LessThan2~0                                                                                ; out0             ;
+; |L11P2|LessThan2~4                                                                                      ; |L11P2|LessThan2~4                                                                                ; out0             ;
+; |L11P2|LessThan2~21                                                                                     ; |L11P2|LessThan2~21                                                                               ; out0             ;
+; |L11P2|LessThan2~23                                                                                     ; |L11P2|LessThan2~23                                                                               ; out0             ;
+; |L11P2|LessThan2~25                                                                                     ; |L11P2|LessThan2~25                                                                               ; out0             ;
+; |L11P2|LessThan2~27                                                                                     ; |L11P2|LessThan2~27                                                                               ; out0             ;
+; |L11P2|Equal0~6                                                                                         ; |L11P2|Equal0~6                                                                                   ; out0             ;
+; |L11P2|Equal0~7                                                                                         ; |L11P2|Equal0~7                                                                                   ; out0             ;
++---------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Simulator
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon Nov 16 00:05:52 2020
+Info: Command: quartus_sim --simulation_results_format=VWF L11P2 -c L11P2
+Info (324025): Using vector source file "D:/unsw/3222/lab/lab11/L11P2_restored2/L11P2.vwf"
+Warning (328016): Wrong node type and/or width for node "|L11P2|y" in vector source file. Node in design is of type Enum and of width 1, but node in vector source file is of type 9-Level and of width 1.
+Warning (328018): Signal name "|L11P2|y" changed to enum type
+Info (310003): Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info (310004): Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info (310002): Simulation partitioned into 1 sub-simulations
+Info (328053): Simulation coverage is      91.18 %
+Info (328052): Number of transitions in simulation is 63716
+Info (324045): Vector file L11P2.sim.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
+Info: Quartus II 64-Bit Simulator was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 376 megabytes
+    Info: Processing ended: Mon Nov 16 00:05:53 2020
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

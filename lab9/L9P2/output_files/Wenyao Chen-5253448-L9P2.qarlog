@@ -1,0 +1,21 @@
+Quartus II Archive log --	D:/unsw/3222/lab/lab9/L9P2/output_files/Wenyao Chen-5253448-L9P2.qarlog
+
+Archive:	D:/unsw/3222/lab/lab9/L9P2/output_files/Wenyao Chen-5253448-L9P2.qar
+Date:		Sun Nov 08 21:35:53 2020
+Quartus II 64-Bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+
+	=========== Files Selected: ===========
+D:/unsw/3222/lab/lab9/L9P2/L9P2.qpf
+D:/unsw/3222/lab/lab9/L9P2/L9P2.qsf
+D:/unsw/3222/lab/lab9/L9P2/L9P2.vhd
+D:/unsw/3222/lab/lab9/L9P2/LPMs.cmp
+D:/unsw/3222/lab/lab9/L9P2/LPMs.qip
+D:/unsw/3222/lab/lab9/L9P2/LPMs.vhd
+D:/unsw/3222/lab/lab9/L9P2/Waveform.vwf
+D:/unsw/3222/lab/lab9/L9P2/db/L9P2.sim.vwf
+D:/unsw/3222/lab/lab9/L9P2/incremental_db/compiled_partitions/L9P2.db_info
+c:/altera/13.0sp1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 10 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

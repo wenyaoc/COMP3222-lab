@@ -39,10 +39,10 @@ ARCHITECTURE behaviour OF mux_2bit_3to1 IS
 	SIGNAL N	:STD_LOGIC_VECTOR(1 DOWNTO 0);
 BEGIN
 	-- your code	
-	N(0) <= U(0) when (S(0)='0') else V(0);
-	N(1) <= U(1) when (S(0)='0') else V(1);
-	M(0) <= N(0) when (S(1)='0') else W(0);
-	M(1) <= N(1) when (S(1)='0') else W(1);
+	N(0) <= (NOT S(0) AND U(0)) OR (S(0) AND V(0));
+	N(1) <= (NOT S(0) AND U(1)) OR (S(0) AND V(1));
+	M(0) <= (NOT S(1) AND N(0)) OR (S(1) AND W(0));
+	M(1) <= (NOT S(1) AND N(1)) OR (S(1) AND W(1));
 END behaviour;
 
 LIBRARY ieee;

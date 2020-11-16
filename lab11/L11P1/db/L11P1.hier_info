@@ -1,0 +1,101 @@
+|L11P1
+SW[0] => bitcount:Count.Data[0]
+SW[1] => bitcount:Count.Data[1]
+SW[2] => bitcount:Count.Data[2]
+SW[3] => bitcount:Count.Data[3]
+SW[4] => bitcount:Count.Data[4]
+SW[5] => bitcount:Count.Data[5]
+SW[6] => bitcount:Count.Data[6]
+SW[7] => bitcount:Count.Data[7]
+SW[8] => bitcount:Count.s
+SW[9] => ~NO_FANOUT~
+KEY[0] => bitcount:Count.Resetn
+KEY[1] => ~NO_FANOUT~
+KEY[2] => ~NO_FANOUT~
+CLOCK_50 => bitcount:Count.Clock
+LEDG[0] <= bitcount:Count.B[0]
+LEDG[1] <= bitcount:Count.B[1]
+LEDG[2] <= bitcount:Count.B[2]
+LEDG[3] <= bitcount:Count.B[3]
+LEDG[4] <= <GND>
+LEDG[5] <= <GND>
+LEDG[6] <= <GND>
+LEDG[7] <= <GND>
+LEDG[8] <= <GND>
+LEDG[9] <= bitcount:Count.Done
+
+
+|L11P1|bitcount:Count
+Clock => shiftrne:ShiftA.Clock
+Clock => B[0]~reg0.CLK
+Clock => B[1]~reg0.CLK
+Clock => B[2]~reg0.CLK
+Clock => B[3]~reg0.CLK
+Clock => y~1.DATAIN
+Resetn => B[0]~reg0.ACLR
+Resetn => B[1]~reg0.ACLR
+Resetn => B[2]~reg0.ACLR
+Resetn => B[3]~reg0.ACLR
+Resetn => y~3.DATAIN
+s => Selector1.IN2
+s => Selector2.IN1
+s => Selector0.IN1
+Data[0] => shiftrne:ShiftA.P[0]
+Data[1] => shiftrne:ShiftA.P[1]
+Data[2] => shiftrne:ShiftA.P[2]
+Data[3] => shiftrne:ShiftA.P[3]
+Data[4] => shiftrne:ShiftA.P[4]
+Data[5] => shiftrne:ShiftA.P[5]
+Data[6] => shiftrne:ShiftA.P[6]
+Data[7] => shiftrne:ShiftA.P[7]
+B[0] <= B[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+B[1] <= B[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+B[2] <= B[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+B[3] <= B[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Done <= Done.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|L11P1|bitcount:Count|shiftrne:ShiftA
+P[0] => Q.DATAB
+P[1] => Q.DATAB
+P[2] => Q.DATAB
+P[3] => Q.DATAB
+P[4] => Q.DATAB
+P[5] => Q.DATAB
+P[6] => Q.DATAB
+P[7] => Q.DATAB
+LA => Q.OUTPUTSELECT
+LA => Q.OUTPUTSELECT
+LA => Q.OUTPUTSELECT
+LA => Q.OUTPUTSELECT
+LA => Q.OUTPUTSELECT
+LA => Q.OUTPUTSELECT
+LA => Q.OUTPUTSELECT
+LA => Q.OUTPUTSELECT
+EA => Q.OUTPUTSELECT
+EA => Q.OUTPUTSELECT
+EA => Q.OUTPUTSELECT
+EA => Q.OUTPUTSELECT
+EA => Q.OUTPUTSELECT
+EA => Q.OUTPUTSELECT
+EA => Q.OUTPUTSELECT
+EA => Q.OUTPUTSELECT
+ser => Q.DATAB
+Clock => Q[0]~reg0.CLK
+Clock => Q[1]~reg0.CLK
+Clock => Q[2]~reg0.CLK
+Clock => Q[3]~reg0.CLK
+Clock => Q[4]~reg0.CLK
+Clock => Q[5]~reg0.CLK
+Clock => Q[6]~reg0.CLK
+Clock => Q[7]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= Q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[5] <= Q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[6] <= Q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[7] <= Q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

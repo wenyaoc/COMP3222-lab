@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 LIBRARY ieee ;
 USE ieee.std_logic_1164.all ;
 ENTITY part2 IS
@@ -10,19 +9,8 @@ END part2;
 
 ARCHITECTURE Behavior OF PART2 IS
 BEGIN
-	LEDG <= X when (S='0') else Y;
-=======
-LIBRARY ieee ;
-USE ieee.std_logic_1164.all ;
-ENTITY part2 IS
-PORT ( S: IN STD_LOGIC;
-		X: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-		Y: IN STD_LOGIC_VECTOR(7 DOWNTO 4);
-		LEDG: OUT STD_LOGIC_VECTOR(3 DOWNTO 0));
-END part2;
-
-ARCHITECTURE Behavior OF PART2 IS
-BEGIN
-	LEDG <= X when (S='0') else Y;
->>>>>>> b4f2403aaad0345c73aa4dcab8371c7a9f359d64
+	LEDG(0) <= (NOT S AND X(0)) OR (S AND Y(4));
+	LEDG(1) <= (NOT S AND X(1)) OR (S AND Y(5));
+	LEDG(2) <= (NOT S AND X(2)) OR (S AND Y(6));
+	LEDG(3) <= (NOT S AND X(3)) OR (S AND Y(7));
 END Behavior;

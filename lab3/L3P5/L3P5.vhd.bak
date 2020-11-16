@@ -1,0 +1,24 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY shift4 IS
+	PORT ( P : IN STD_LOGIC_VECTOR( 3 DOWNTO 0) ;
+			ser, ld, Clock : IN STD_LOGIC ;
+			Q : BUFFER STD_LOGIC_VECTOR( 3 DOWNTO 0) ) ;
+END shift4;
+
+ARCHITECTURE Behavior OF shift4 IS
+BEGIN
+	PROCESS
+	BEGIN
+		WAIT UNTIL Clock’EVENT AND Clock = ‘1’ ;
+		IF ld = ‘1’ THEN
+			Q <= P ;
+		ELSE
+			Q(0) <= Q(1) ;
+			Q(1) <= Q(2) ;
+			Q(2) <= Q(3) ;
+			Q(3) <= ser ;
+		END IF ;
+	END PROCESS ;
+END Behavior ; 
