@@ -1,5 +1,6 @@
 # comp3222lab
 
+board： DE0
 |Lab|Grade|
 |-|-|
 |Lab01|6/6|
