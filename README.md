@@ -9,5 +9,5 @@
 |Lab07|6/6|
 |Lab09|4/4|
 |Lab09_bonus|1/1|
-|Lab011|6/7(missing timing diagram)|
+|Lab11|6/7(missing timing diagram)|
 |Total|39/40|
