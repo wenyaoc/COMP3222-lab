@@ -1,4 +1,4 @@
-# COMP3222/9222 Digital Circuits and Systems lab
+# labs for COMP3222/9222 Digital Circuits and Systems
 
 board： DE0
 
