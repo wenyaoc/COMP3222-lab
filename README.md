@@ -1,4 +1,4 @@
-# comp3222lab
+# COMP3222 lab
 
 board： DE0
 
